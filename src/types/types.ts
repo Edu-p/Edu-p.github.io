@@ -10,3 +10,8 @@ export interface GroupType {
     child: string[];
     yOffset?: number;
 }
+
+export interface JobPosition {
+    position: string
+    bulletPoint: string[]
+}

@@ -29,6 +29,8 @@ export default {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    align-content: center;
+    min-height: 500px;
 }
 
 .skill-table>div {

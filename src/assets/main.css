@@ -642,36 +642,109 @@ a {
 
 .button-primary {
   background-color: var(--color-primary);
-  color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 0.25rem;
   transition: background-color 0.3s;
   cursor: pointer;
+  color: white;
+  fill: white;
+
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+
+  >* {
+    color: white;
+    fill: white;
+  }
+
 }
 
 .button-primary:hover {
-  background-color: var(--color-primary-hover);
+  background-color: #F1F1F1;
+  color: var(--color-primary);
+  fill: var(--color-primary);
+
+  >* {
+    color: var(--color-primary);
+    fill: var(--color-primary);
+  }
 }
 
 .button-secondary {
   background-color: #F1F1F1;
-  color: var(--color-primary);
   border: 1px solid var(--color-primary);
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 0.25rem;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
+  line-height: 20px;
+  color: var(--color-primary);
+  fill: var(--color-primary);
+
+  svg {
+    height: 20px;
+    width: 20px;
+  }
 
   >* {
     color: var(--color-primary);
+    fill: var(--color-primary);
   }
+
+
 }
 
 .button-secondary:hover {
   background-color: var(--color-primary);
-  color: white;
+  color: white !important;
+  fill: white !important;
 
   >* {
     color: white;
+    fill: white;
+  }
+}
+
+.icon-button-primary {
+  background-color: var(--color-primary);
+  fill: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.icon-button-primary:hover {
+  fill: var(--color-primary-hover);
+}
+
+.icon-button-secondary {
+  background-color: #F1F1F1;
+  fill: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+
+  >* {
+    fill: var(--color-primary);
+  }
+
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.icon-button-secondary:hover {
+  background-color: var(--color-primary);
+  fill: white;
+
+  >* {
+    fill: white;
   }
 }

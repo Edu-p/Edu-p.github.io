@@ -9,14 +9,10 @@
                 </a>
             </div>
             <hr />
-            <p class="footer-copy">© 2024 Thamires Morais. All rights reserved.</p>
+            <p class="footer-copy">© 2025. All rights reserved.</p>
         </footer>
     </ScrollReveal>
 </template>
-
-<script setup lang="ts">
-// No need for export default in <script setup>
-</script>
 
 <style scoped>
 .footer {

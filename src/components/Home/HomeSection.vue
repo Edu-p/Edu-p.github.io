@@ -4,16 +4,16 @@
             <img :src="eduImage" alt="Education Image" class="edu-image" :class="{ zoom: show }" />
             <div class="text">
                 <div class="text-xxlarge text-bold margin-bottom-large typing" :class="showTitle && 'animated-done'"
-                    v-if="showName">Hi, I'M Eduardo
+                    v-if="showName">{{ t('home.dev_name') }}
                 </div>
                 <p class="text-xlarge margin-bottom-large typing" :class="showWelcome && 'animated-done'"
-                    v-if="showTitle">ML/AI DEVELOPER</p>
+                    v-if="showTitle">{{ t('home.dev_role') }}</p>
                 <p class="text-small text-light margin-bottom-small typing" :class="showButton && 'animated-done'"
-                    v-if="showWelcome">Welcome to my portfolio
+                    v-if="showWelcome">{{ t('home.dev_welcome') }}
                 </p>
                 <button v-if="showButton" class="button-secondary fade-in">
-                    <a href="https://www.linkedin.com/in/eduardo-amorim-eaa/" class="text-small">View my
-                        Linkedin</a>
+                    <a href="https://www.linkedin.com/in/eduardo-amorim-eaa/" class="text-small">{{ t('home.linkedin')
+                        }}</a>
                 </button>
             </div>
         </div>
@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import edu from '@/assets/img/edu.png';
+import { useI18n } from 'vue-i18n';
 
 export default {
     name: 'HomeSection',
@@ -34,6 +35,12 @@ export default {
             showWelcome: false,
             showButton: false,
         };
+    },
+    methods: {
+        t(key: string) {
+            const { t } = useI18n();
+            return t(key);
+        }
     },
     mounted() {
         setTimeout(() => { this.show = true; }, 300);
@@ -124,6 +131,7 @@ export default {
 
         .text {
             align-self: center;
+            text-align: center;
         }
 
         .edu-image {

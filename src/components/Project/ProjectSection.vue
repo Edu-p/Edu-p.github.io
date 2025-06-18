@@ -1,80 +1,52 @@
 <template>
     <section class="projects-section container">
-        <h2>Projects</h2>
+        <h2>{{ t('projects.title') }}</h2>
         <select v-model="selectedTag" class="filter-select">
-            <option value="">Filter by</option>
+            <option value="">{{ t('projects.filter_by') }}</option>
             <option v-for="tag in allTags" :key="tag" :value="tag">{{ tag }}</option>
         </select>
 
         <div class="projects-grid">
             <div v-for="(project, index) in filteredProjects" :key="index" class="project-card"
-                :style="{ animationDelay: `${index * 0.2}s` }">
+                :style="{ animationDelay: `${index * 0.2}s` }" @click="openProject(project.link)"
+                style="cursor: pointer">
                 <div class="project-header">
-                    <a :href="project.link" target="_blank" class="project-title">
-                        {{ project.title }}
+                    <a :href="project.link" target="_blank" class="project-title" @click.stop>
+                        {{ t(`projects.projects[${index}].title`) }}
                     </a>
                     <span class="arrow">↗</span>
                 </div>
                 <p class="project-description margin-top-small margin-bottom-small text-secondary text-xsmall">{{
-                    project.description }}</p>
+                    t(`projects.projects[${index}].description`) }}</p>
                 <div class="project-tags">
                     <span v-for="(tag, idx) in project.tags" :key="idx" class="tag">{{ tag }}</span>
                 </div>
             </div>
         </div>
+
+        <div class="width-100 text-center">
+            <button class="button-primary margin-top-large"
+                @click="openProject('https://github.com/eduardoamorim/projects')">
+                {{ t('projects.view_all') }}
+            </button>
+        </div>
+
     </section>
 </template>
 
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script lang="ts">
+import { useI18n } from 'vue-i18n';
+import en from '@/locale/en.json';
+
 export default {
     name: 'ProjectsSection',
     data() {
         return {
             selectedTag: '',
-            projects: [
-                {
-                    title: 'Writing Test',
-                    link: 'https://github.com/Edu-p/writing-test',
-                    description: 'A web platform that tracks and enhances the English writing proficiency of developers through AI-based analysis.',
-                    tags: ['AI', 'NLP', 'Vue', 'Python'],
-                },
-                {
-                    title: 'Intent Detection',
-                    link: 'https://github.com/Edu-p/intent-detection',
-                    description: 'BERT-based NLP model to classify user intents and fetch the last three detected intents from a database.',
-                    tags: ['NLP', 'BERT', 'AI', 'Python'],
-                },
-                {
-                    title: 'Reco - Condominium Debt Negotiation',
-                    link: 'https://github.com/Edu-p/Reco',
-                    description: 'Award-winning web platform automating the negotiation process for defaulting condominium residents. 🏆 3 Awards.',
-                    tags: ['AI', 'Fullstack', 'Vue', 'Python'],
-                },
-                {
-                    title: 'Attention Mechanism',
-                    link: 'https://github.com/Edu-p/attention-mechanism',
-                    description: 'Conceptual and practical implementation of attention mechanisms with and without PyTorch for NLP tasks.',
-                    tags: ['NLP', 'Deep Learning', 'PyTorch', 'Python'],
-                },
-                {
-                    title: 'Granting of Credit',
-                    link: 'https://github.com/Edu-p/granting-of-credit',
-                    description: 'End-to-end project for credit risk analysis, involving case study comparison and credit scoring model building.',
-                    tags: ['Finance', 'Machine Learning', 'Python'],
-                },
-                {
-                    title: 'Store Sales Forecast',
-                    link: 'https://github.com/Edu-p/store-sales-forecast',
-                    description: 'Sales forecasting for Rossmann stores using time series modeling and ML techniques to predict the next 6 weeks.',
-                    tags: ['Time Series', 'Forecasting', 'Machine Learning', 'Python'],
-                },
-                {
-                    title: 'Which Property',
-                    link: 'https://github.com/Edu-p/which-property',
-                    description: 'Data-driven insights project for House Rocket to identify the most profitable property investment opportunities.',
-                    tags: ['Data Science', 'Exploratory Analysis', 'Python'],
-                },
-            ],
+            projects: en.projects.projects.map((project: any) => ({
+                ...project
+            })),
         };
     },
     computed: {
@@ -86,6 +58,15 @@ export default {
             if (!this.selectedTag) return this.projects;
             return this.projects.filter((p) => p.tags.includes(this.selectedTag));
         },
+    },
+    methods: {
+        openProject(link: string) {
+            window.open(link, "_blank");
+        },
+        t(key: string) {
+            const { t } = useI18n();
+            return t(key);
+        }
     },
 };
 </script>
@@ -116,7 +97,7 @@ export default {
 }
 
 .project-card {
-    background: white;
+    background: #ffffff4f;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -131,9 +112,14 @@ export default {
 }
 
 .project-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 0px rgb(28 26 63 / 22%);
+    background-color: #ffffff;
     cursor: pointer;
+
+    .project-title {
+        color: var(--color-primary);
+        text-decoration: underline;
+    }
 
     .project-description {
         color: var(--text-primary);

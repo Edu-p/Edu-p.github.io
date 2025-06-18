@@ -49,15 +49,14 @@
     <div v-if="showMenu" :class="`bg-topbar menu-mobile font-barlow w-100 Z-10 ${showMenu ? 'show' : ''}`">
         <MenuItems v-for="(topic, i) in topics" :key="i" :topic="topic" :index="i" :setActiveIndex="setActiveIndex"
             :activeIndex="activeIndex" />
-        <div class="col p-2 font-barlow text-center align-center dropdown d-flex">
-        </div>
+        <ChangeLanguage />
     </div>
 </template>
 
 <script lang="ts">
 import type { Topic } from "@/types/types";
 import MenuItems from "./MenuItem.vue";
-
+import ChangeLanguage from "./ChangeLanguage.vue";
 
 export default {
     name: 'MenuItem',
@@ -76,7 +75,8 @@ export default {
         }
     },
     components: {
-        MenuItems
+        MenuItems,
+        ChangeLanguage
     },
     data() {
         return {
@@ -106,5 +106,13 @@ export default {
     width: fit-content;
     padding: 8px 16px;
     justify-self: center;
+}
+
+.menu-mobile {
+    justify-items: anchor-center;
+
+    .language-toggle {
+        margin-top: 1rem;
+    }
 }
 </style>

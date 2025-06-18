@@ -4,9 +4,9 @@
         { visible }
     ]">
         <div class="time-line font-barlow flex align-start">
-            <div class="text-right width-25 bp-desktop">
-                <h2>{{ company }}</h2>
-                <p class="text-xsmall">{{ date }}</p>
+            <div class="text-right bp-desktop">
+                <h3>{{ t(`resume.companies.${company}.name`) }}</h3>
+                <p class="text-xsmall">{{ t(`resume.companies.${company}.date`) }}</p>
             </div>
             <div class="timeline-container">
                 <div :class="['timeline-circle', index % 2 === 0 ? 'even' : 'odd']">
@@ -20,21 +20,21 @@
             </div>
             <div class="timeline-description">
                 <div class="text-left bp-mobile margin-bottom-medium">
-                    <h2>{{ company }}</h2>
-                    <span class="text-xsmall text-secondary">{{ date }}</span>
+                    <h4>{{ t(`resume.companies.${company}.name`) }}</h4>
+                    <span class="text-xsmall text-secondary">{{ t(`resume.companies.${company}.date`) }}</span>
                 </div>
                 <div class="text-left width-100 pb-2r" v-for="(position, posIdx) in position" :key="posIdx">
-                    <h3 class="font-bold"> <template v-if="posIdx > 0">
+                    <h4 class="text-semibold"> <template v-if="posIdx > 0">
                             <svg width="12" height="12" style="vertical-align: middle; margin-right: 6px;">
                                 <circle cx="6" cy="6" r="4" fill="var(--color-primary)" />
                             </svg>
-                        </template>{{ position.position }}</h3>
+                        </template>{{ t(`resume.companies.${company}.positions[${posIdx}].title`) }}</h4>
 
                     <ul class="margin-top-small">
                         <li v-for="(point, idx) in position.bulletPoint" :key="idx"
-                            class="text-xsmall bullet-point text-secondary margin-bottom-small">
+                            class="text-xsmall bullet-point margin-bottom-small">
 
-                            {{ point }}
+                            {{ t(`resume.companies.${company}.positions[${posIdx}].bullets[${idx}]`) }}
                         </li>
                     </ul>
                 </div>
@@ -45,11 +45,27 @@
 
 <script lang="ts">
 
+import type { JobPosition } from '@/types/types';
+import { useI18n } from 'vue-i18n';
+
 export default {
     props: {
-        company: String,
-        date: String,
-        position: Array
+        company: {
+            type: String,
+            required: true
+        },
+        date: {
+            type: String,
+            required: true
+        },
+        position: {
+            type: Array as () => JobPosition[],
+            required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        }
     },
     data(): { visible: boolean; observer: IntersectionObserver | null } {
         return {
@@ -76,7 +92,13 @@ export default {
     },
     beforeUnmount() {
         if (this.observer) this.observer.disconnect()
-    }
+    },
+    methods: {
+        t(key: string) {
+            const { t } = useI18n();
+            return t(key);
+        }
+    },
 }
 </script>
 <style>
@@ -107,7 +129,7 @@ export default {
 
 .time-line h2,
 .time-line h3 {
-    color: #344054;
+    color: #5a5a5a;
     font-weight: 600;
 }
 
@@ -121,15 +143,20 @@ export default {
 
 
 .time-line {
-    justify-content: center;
+    justify-content: left;
     gap: 32px;
     position: relative;
     height: 95%;
     overflow: hidden;
 }
 
+.time-line .text-right {
+    width: 140px;
+    text-align: right;
+}
+
 .timeline-description {
-    width: 50%;
+    width: 80%;
 
     .width-100 {
 
@@ -139,6 +166,7 @@ export default {
 
 .bullet-point {
     transition: all 0.3s ease-in-out;
+    color: #a4a4a4;
 
     &:hover {
         color: var(--color-primary);

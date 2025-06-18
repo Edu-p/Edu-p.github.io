@@ -1,46 +1,74 @@
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
+
+function toggleLanguage() {
+    locale.value = locale.value === 'pt-BR' ? 'en-US' : 'pt-BR';
+}
+</script>
+
 <template>
-    <div class="col f-1-1 p-0 c-pointer p-relative" id="changeLanguage" @click="toggleDropdown">
-        <div class="no-br p-2">
-            <font-awesome-icon :icon="faGlobe" class="margin-right-small" />
-            {{ language === 'PT' ? 'PT-BR' : 'EN-USA' }}
-            <font-awesome-icon :icon="faChevronUp"
-                :class="['margin-left-small', 'fs-08', 'c-blue', { rotate: !dropdown }]" />
-        </div>
-        <div id="myDropdown" :class="['dropdown-content', { showDrop: dropdown }]">
-            <button @click.stop="handleChangeLanguage('PT')">PT-BR</button>
-            <button @click.stop="handleChangeLanguage('EN')">EN-USA</button>
-        </div>
+    <div class="language-toggle">
+        <input type="checkbox" id="lang-toggle" :checked="locale === 'en-US'" @change="toggleLanguage" />
+        <label for="lang-toggle">
+            <span class="lang pt">PT</span>
+            <span class="lang en">EN</span>
+            <span class="slider"></span>
+        </label>
     </div>
 </template>
 
-<script lang="ts">
+<style>
+.language-toggle {
+    position: relative;
+    width: 68px;
+    height: 30px;
+}
 
-export default defineComponent({
-    data() {
-        return {
-            dropdown: false
-        }
-    },
-    computed: {
-        language() {
-            return this.$store.state.topBarRedux.language
-        }
-    },
-    methods: {
-        toggleDropdown() {
-            this.dropdown = !this.dropdown
-        },
-        handleChangeLanguage(lang) {
-            if (this.language !== lang) {
-                this.$store.dispatch('changeLanguage', lang)
-                changeLanguageService(lang, { i18n: { changeLanguage: (l) => (this.$i18n.locale = l) } })
-            }
-            this.dropdown = false
-        }
-    }
-})
-</script>
+.language-toggle input {
+    display: none;
+}
 
-<style scoped>
-/* Add your styles here */
+.language-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d3d3d3;
+    border-radius: 15px;
+    height: 100%;
+    padding: 0 11px;
+    cursor: pointer;
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    box-sizing: border-box;
+}
+
+.language-toggle .lang {
+    z-index: 2;
+}
+
+.language-toggle .slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 31px;
+    height: 24px;
+    background-color: var(--color-primary);
+    border-radius: 52px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.language-toggle input:checked+label .slider {
+    transform: translateX(30px);
+}
+
+.language-toggle input:checked+label .en,
+.language-toggle input:not(:checked)+label .pt {
+    color: white;
+    font-weight: bold;
+}
 </style>

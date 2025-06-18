@@ -1,0 +1,198 @@
+{
+    "topbar": {
+        "home": "Home",
+        "resume": "Resume",
+        "projects": "Projects",
+        "skills": "Skills"
+    },
+    "home": {
+        "dev_name": "Hi, I'm Eduardo",
+        "dev_role": "ML/AI DEVELOPER",
+        "dev_welcome": "Welcome to my portfolio",
+        "linkedin": "View my Linkedin"
+    },
+    "resume": {
+        "my_experience": "My experience",
+        "view_resume": "View my Resume",
+        "education": "Education",
+        "undergraduate": "Undergraduate in Computer Science",
+        "university": "Federal University of Pernambuco",
+        "companies": {
+            "amigo_tech": {
+                "name": "Amigo Tech",
+                "date": "03/2025 - present",
+                "positions": [
+                    {
+                        "title": "ML Engineer",
+                        "bullets": [
+                            "Developed APIs with FastAPI to expose Machine Learning services to other internal squads.",
+                            "Created AI agents using LangGraph and LangChain for conversational logic, with cost monitoring via LangSmith. Worked with MCP servers for better encapsulation of the tools used.",
+                            "Implemented a key feature for the squad, parallelizing a heavy computer vision process, reducing execution time by ~46%."
+                        ]
+                    }
+                ]
+            },
+            "neurotech": {
+                "name": "Neurotech",
+                "date": "02/2023 - 03/2025",
+                "positions": [
+                    {
+                        "title": "ML Engineer",
+                        "date": "11/2023 - 03/2025",
+                        "bullets": [
+                            "Achieved the squad's largest sale ever, reaching 9x the annual target in the total contract, by applying a Python-developed algorithm that combines machine learning models based on performance and cost, in a proof of concept with one of the 10 largest banks in Brazil.",
+                            "Developed R&D projects aimed at advancing the state of the art in techniques used by data scientists.",
+                            "Led strategic meetings to share knowledge about widely used machine learning techniques, including model interpretability in the internal audit process of large banks and feature engineering strategies."
+                        ]
+                    },
+                    {
+                        "title": "ML Engineer (Internship)",
+                        "date": "02/2023 - 11/2023",
+                        "bullets": [
+                            "Contributed to the development of internal libraries, accelerating the study and experimentation process for the company's data scientists.",
+                            "Participated in the design of solutions for banks and financial institutions, addressing challenges throughout the credit cycle."
+                        ]
+                    }
+                ]
+            },
+            "voxar_labs": {
+                "name": "Voxar Labs",
+                "date": "0/2023 - 02/2024",
+                "positions": [
+                    {
+                        "title": "ML Engineer",
+                        "date": "01/2023 - 02/2023",
+                        "bullets": [
+                            "Participated in the development of a solution for transmission tower inspection, using drones for field image capture, focusing on the classification of anomalies and defects, significantly reducing manual effort in image analysis, mostly without anomalies.",
+                            "Deployed the production architecture of the models that made up the solution, containerizing and serving them in a Kubernetes infrastructure on Azure (AKS), as well as configuring a monitoring dashboard using Grafana."
+                        ]
+                    },
+                    {
+                        "title": "ML Engineer",
+                        "date": "08/2022 - 12/2022",
+                        "bullets": [
+                            "Conducted research and experimentation with state-of-the-art algorithms in the field of federated learning, adapting frameworks (i.e., Flower, PySyft) to meet the project's specific needs.",
+                            "Developed new datasets to support researchers in the field globally.",
+                            "Published at the international VISAPP conference (Computer Vision Theory and Applications) the work \"FedBID and FedDocs: A Dataset and System for Federated Document Analysis\"."
+                        ]
+                    }
+                ]
+            },
+            "stellantis": {
+                "name": "Stellantis",
+                "date": "06/2022 - 09/2022",
+                "positions": [
+                    {
+                        "title": "ML Engineer (Internship)",
+                        "date": "06/2022 - 09/2022",
+                        "bullets": [
+                            "Developed an application for capturing and detecting barcodes on automotive production lines at the Stellantis group, reducing manual verification errors by ~63%.",
+                            "Used YOLO for object detection and Tesseract as OCR."
+                        ]
+                    }
+                ]
+            },
+            "aibox_lab": {
+                "name": "AiBox Lab",
+                "date": "05/2021 - 09/2021",
+                "positions": [
+                    {
+                        "title": "ML Engineer (Internship)",
+                        "date": "06/2021 - 08/2021",
+                        "bullets": [
+                            "Implemented a system to generate textual analysis metrics, including readability, coherence, and cohesion, using NLTK and SpaCy.",
+                            "Applied these metrics in a classifier for university professors' textual feedback, helping manage large volumes of individual evaluations, achieving 95.1% accuracy on a set of 1000 texts evaluated by real professors, using scikit-learn."
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "projects": {
+        "title": "Projects",
+        "filter_by": "Filter by",
+        "view_all": "View All",
+        "projects": [
+            {
+                "title": "Writing Test",
+                "link": "https://github.com/Edu-p/writing-test",
+                "description": "A web platform that tracks and enhances the English writing proficiency of developers through AI-based analysis.",
+                "tags": [
+                    "AI",
+                    "NLP",
+                    "Vue",
+                    "Python"
+                ]
+            },
+            {
+                "title": "Intent Detection",
+                "link": "https://github.com/Edu-p/intent-detection",
+                "description": "BERT-based NLP model to classify user intents and fetch the last three detected intents from a database.",
+                "tags": [
+                    "NLP",
+                    "BERT",
+                    "AI",
+                    "Python"
+                ]
+            },
+            {
+                "title": "Reco - Condominium Debt Negotiation",
+                "link": "https://github.com/Edu-p/Reco",
+                "description": "Award-winning web platform automating the negotiation process for defaulting condominium residents. 🏆 3 Awards.",
+                "tags": [
+                    "AI",
+                    "Fullstack",
+                    "Vue",
+                    "Python"
+                ]
+            },
+            {
+                "title": "Attention Mechanism",
+                "link": "https://github.com/Edu-p/attention-mechanism",
+                "description": "Conceptual and practical implementation of attention mechanisms with and without PyTorch for NLP tasks.",
+                "tags": [
+                    "NLP",
+                    "Deep Learning",
+                    "PyTorch",
+                    "Python"
+                ]
+            },
+            {
+                "title": "Granting of Credit",
+                "link": "https://github.com/Edu-p/granting-of-credit",
+                "description": "End-to-end project for credit risk analysis, involving case study comparison and credit scoring model building.",
+                "tags": [
+                    "Finance",
+                    "Machine Learning",
+                    "Python"
+                ]
+            },
+            {
+                "title": "Store Sales Forecast",
+                "link": "https://github.com/Edu-p/store-sales-forecast",
+                "description": "Sales forecasting for Rossmann stores using time series modeling and ML techniques to predict the next 6 weeks.",
+                "tags": [
+                    "Time Series",
+                    "Forecasting",
+                    "Machine Learning",
+                    "Python"
+                ]
+            },
+            {
+                "title": "Which Property",
+                "link": "https://github.com/Edu-p/which-property",
+                "description": "Data-driven insights project for House Rocket to identify the most profitable property investment opportunities.",
+                "tags": [
+                    "Data Science",
+                    "Exploratory Analysis",
+                    "Python"
+                ]
+            }
+        ]
+    },
+    "skills": {
+        "title": "Skills",
+        "table_view": "Table View",
+        "graph_view": "Graph View"
+    }
+}

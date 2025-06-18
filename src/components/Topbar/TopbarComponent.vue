@@ -21,10 +21,10 @@ export default defineComponent({
       activeIndex: 0,
       menuDesktop: true,
       topics: [
-        { name: "Inicio", index: 0, href: "#Home" },
-        { name: "Curriculo", index: 1, href: "#Resume" },
-        { name: "Projetos", index: 2, href: "#Projects" },
-        { name: "Skills", index: 3, href: "#Skills" },
+        { name: "topbar.home", index: 0, href: "#Home" },
+        { name: "topbar.resume", index: 1, href: "#Resume" },
+        { name: "topbar.projects", index: 2, href: "#Projects" },
+        { name: "topbar.skills", index: 3, href: "#Skills" },
       ],
     };
   },
@@ -37,22 +37,16 @@ export default defineComponent({
       this.menuDesktop = width >= 920;
     },
     onScroll() {
-      if (window.scrollY === 0) {
-        this.activeIndex = 0;
-        return;
-      }
       const sectionIds = this.topics.map((t) => t.href.replace("#", ""));
       let maxPercent = 0;
       let active = 0;
+
       sectionIds.forEach((id, idx) => {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
           const vh = window.innerHeight || document.documentElement.clientHeight;
-          const visible = Math.max(
-            0,
-            Math.min(rect.bottom, vh) - Math.max(rect.top, 0)
-          );
+          const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
           const percent = visible / Math.min(rect.height, vh);
           if (percent > maxPercent) {
             maxPercent = percent;
@@ -60,8 +54,16 @@ export default defineComponent({
           }
         }
       });
+
       this.activeIndex = active;
-    },
+
+      if (active === 0) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      } else {
+        history.replaceState(null, '', window.location.pathname + window.location.search + this.topics[active].href);
+      }
+    }
+
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
