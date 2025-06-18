@@ -1,0 +1,677 @@
+@import './base.css';
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: 0.4s;
+}
+
+/*Text Styles*/
+.text-xsmall {
+  font-size: 0.75rem;
+  /* 12px */
+}
+
+.text-small {
+  font-size: 0.875rem;
+  /* 14px */
+}
+
+.text-medium {
+  font-size: 1rem;
+  /* 16px */
+}
+
+.text-large {
+  font-size: 1.25rem;
+  /* 20px */
+}
+
+.text-xlarge {
+  font-size: 1.5rem;
+  /* 24px */
+}
+
+.text-xxlarge {
+  font-size: 2rem;
+  /* 32px */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-regular {
+  font-weight: normal;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.text-thin {
+  font-weight: 100;
+}
+
+.text-semibold {
+  font-weight: 600;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+/* Padding and Margins */
+
+.padding-small {
+  padding: 0.5rem;
+  /* 8px */
+}
+
+.padding-medium {
+  padding: 1rem;
+  /* 16px */
+}
+
+.padding-large {
+  padding: 1.5rem;
+  /* 24px */
+}
+
+.padding-xlarge {
+  padding: 2rem;
+  /* 32px */
+}
+
+.margin-small {
+  margin: 0.5rem;
+  /* 8px */
+}
+
+.margin-medium {
+  margin: 1rem;
+  /* 16px */
+}
+
+.margin-large {
+  margin: 1.5rem;
+  /* 24px */
+}
+
+.margin-xlarge {
+  margin: 2rem;
+  /* 32px */
+}
+
+/* Paddings and Margins for Specific Sides */
+
+.padding-top-small {
+  padding-top: 0.5rem;
+  /* 8px */
+}
+
+.padding-top-medium {
+  padding-top: 1rem;
+  /* 16px */
+}
+
+.padding-top-large {
+  padding-top: 1.5rem;
+  /* 24px */
+}
+
+.padding-top-xlarge {
+  padding-top: 2rem;
+  /* 32px */
+}
+
+.padding-bottom-small {
+  padding-bottom: 0.5rem;
+  /* 8px */
+}
+
+.padding-bottom-medium {
+  padding-bottom: 1rem;
+  /* 16px */
+}
+
+.padding-bottom-large {
+  padding-bottom: 1.5rem;
+  /* 24px */
+}
+
+.padding-bottom-xlarge {
+  padding-bottom: 2rem;
+  /* 32px */
+}
+
+.padding-left-small {
+  padding-left: 0.5rem;
+  /* 8px */
+}
+
+.padding-left-medium {
+  padding-left: 1rem;
+  /* 16px */
+}
+
+.padding-left-large {
+  padding-left: 1.5rem;
+  /* 24px */
+}
+
+.padding-left-xlarge {
+  padding-left: 2rem;
+  /* 32px */
+}
+
+.padding-right-small {
+  padding-right: 0.5rem;
+  /* 8px */
+}
+
+.padding-right-medium {
+  padding-right: 1rem;
+  /* 16px */
+}
+
+.padding-right-large {
+  padding-right: 1.5rem;
+  /* 24px */
+}
+
+.padding-right-xlarge {
+  padding-right: 2rem;
+  /* 32px */
+}
+
+.margin-top-small {
+  margin-top: 0.5rem;
+  /* 8px */
+}
+
+.margin-top-medium {
+  margin-top: 1rem;
+  /* 16px */
+}
+
+.margin-top-large {
+  margin-top: 1.5rem;
+  /* 24px */
+}
+
+.margin-top-xlarge {
+  margin-top: 2rem;
+  /* 32px */
+}
+
+.margin-bottom-small {
+  margin-bottom: 0.5rem;
+  /* 8px */
+}
+
+.margin-bottom-medium {
+  margin-bottom: 1rem;
+  /* 16px */
+}
+
+.margin-bottom-large {
+  margin-bottom: 1.5rem;
+  /* 24px */
+}
+
+.margin-bottom-xlarge {
+  margin-bottom: 2rem;
+  /* 32px */
+}
+
+.margin-left-small {
+  margin-left: 0.5rem;
+  /* 8px */
+}
+
+.margin-left-medium {
+  margin-left: 1rem;
+  /* 16px */
+}
+
+.margin-left-large {
+  margin-left: 1.5rem;
+  /* 24px */
+}
+
+.margin-left-xlarge {
+  margin-left: 2rem;
+  /* 32px */
+}
+
+.margin-right-small {
+  margin-right: 0.5rem;
+  /* 8px */
+}
+
+.margin-right-medium {
+  margin-right: 1rem;
+  /* 16px */
+}
+
+.margin-right-large {
+  margin-right: 1.5rem;
+  /* 24px */
+}
+
+.margin-right-xlarge {
+  margin-right: 2rem;
+  /* 32px */
+}
+
+/* Flexbox Utilities */
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-start {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex-end {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.flex-space-around {
+  justify-content: space-around;
+}
+
+.flex-space-evenly {
+  justify-content: space-evenly;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.place-self-center {
+  place-self: center;
+}
+
+.place-self-start {
+  place-self: flex-start;
+}
+
+.place-self-end {
+  place-self: flex-end;
+}
+
+/* Grid Utilities */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* Gap Utilities */
+
+.gap-small {
+  gap: 0.5rem;
+  /* 8px */
+}
+
+.gap-medium {
+  gap: 1rem;
+  /* 16px */
+}
+
+.gap-large {
+  gap: 1.5rem;
+  /* 24px */
+}
+
+.gap-xlarge {
+  gap: 2rem;
+  /* 32px */
+}
+
+/* Border Utilities */
+
+.border {
+  border: 1px solid var(--color-border);
+}
+
+.border-radius-small {
+  border-radius: 0.25rem;
+  /* 4px */
+}
+
+.border-radius-medium {
+  border-radius: 0.5rem;
+  /* 8px */
+}
+
+.border-radius-large {
+  border-radius: 0.75rem;
+  /* 12px */
+}
+
+.border-radius-xlarge {
+  border-radius: 1rem;
+  /* 16px */
+}
+
+.border-rounded {
+  border-radius: 9999px;
+  /* Fully rounded */
+}
+
+/* Background Utilities */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-light {
+  background-color: var(--color-light);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+.bg-black {
+  background-color: var(--color-black);
+}
+
+.bg-light-gray {
+  background-color: var(--color-light-gray);
+}
+
+.bg-dark-gray {
+  background-color: var(--color-dark-gray);
+}
+
+/* Specific for project */
+
+.bg-gray-0 {
+  background-color: var(--color-gray-0);
+}
+
+.bg-gray-25 {
+  background-color: var(--color-gray-25);
+}
+
+.bg-gray-50 {
+  background-color: var(--color-gray-50);
+}
+
+.bg-gray-75 {
+  background-color: var(--color-gray-75);
+}
+
+.bg-gray-100 {
+  background-color: var(--color-gray-100);
+}
+
+/* Width and Height Utilities */
+
+.width-100 {
+  width: 100%;
+}
+
+.width-75 {
+  width: 75%;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.width-25 {
+  width: 25%;
+}
+
+.width-auto {
+  width: auto;
+}
+
+.width-fit {
+  width: fit-content;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.height-75 {
+  height: 75%;
+}
+
+.height-50 {
+  height: 50%;
+}
+
+.height-25 {
+  height: 25%;
+}
+
+.height-auto {
+  height: auto;
+}
+
+.height-fit {
+  height: fit-content;
+}
+
+/* Positioning Utilities */
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-sticky {
+  position: sticky;
+}
+
+/* Z-Index Utilities */
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.z-index-3 {
+  z-index: 3;
+}
+
+/* Overflow Utilities */
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Container breakpoints */
+
+.container {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  /* Default padding */
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Button Styles */
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.button-secondary {
+  background-color: #F1F1F1;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  >* {
+    color: var(--color-primary);
+  }
+}
+
+.button-secondary:hover {
+  background-color: var(--color-primary);
+  color: white;
+
+  >* {
+    color: white;
+  }
+}
