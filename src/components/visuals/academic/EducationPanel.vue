@@ -18,13 +18,6 @@
       <dl class="education-meta">
         <div>
           <span class="education-meta-icon" aria-hidden="true">
-            <UiIcon name="calendar_month" size="sm" />
-          </span>
-          <dt>{{ t.academic.period }}</dt>
-          <dd>2020 - 2025</dd>
-        </div>
-        <div>
-          <span class="education-meta-icon" aria-hidden="true">
             <UiIcon name="location_on" size="sm" />
           </span>
           <dt>{{ t.academic.location }}</dt>
