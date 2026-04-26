@@ -36,7 +36,7 @@
               {{ highlight.value }}
             </strong>
             <small
-              class="max-w-[140px] text-[0.88rem] leading-[1.35] text-[color-mix(in_srgb,var(--color-ice)_82%,transparent)]"
+              class="max-w-[140px] text-[0.88rem] leading-[1.35] text-[color-mix(in_srgb,var(--color-ice)_82%,transparent)] text-left"
             >
               {{ highlight.label }}
             </small>
