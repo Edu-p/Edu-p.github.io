@@ -111,10 +111,8 @@ const messages = {
         },
       ],
       highlights: [
-        { icon: 'BR', value: '1', label: 'national paper' },
-        { icon: 'INT', value: '2', label: 'international papers' },
-        { icon: 'TOP', value: '100%', label: 'accepted papers' },
-        { icon: 'GPA', value: '8.9/10', label: 'final GPA' },
+        { icon: 'DOC', value: '3', label: 'Published articles' },
+        { icon: 'GPA', value: '8.9/10', label: 'Final GPA' },
       ],
       projectsTitle: 'Projects',
       viewProject: 'View project',
@@ -394,9 +392,7 @@ const messages = {
         },
       ],
       highlights: [
-        { icon: 'BR', value: '1', label: 'artigo nacional' },
-        { icon: 'INT', value: '2', label: 'artigos internacionais' },
-        { icon: 'TOP', value: '100%', label: 'artigos aceitos' },
+        { icon: 'DOC', value: '3', label: 'Artigos publicados' },
         { icon: 'GPA', value: '8.9/10', label: 'GPA final' },
       ],
       projectsTitle: 'Projetos',
