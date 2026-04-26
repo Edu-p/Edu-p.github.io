@@ -1,0 +1,339 @@
+.timeline-section {
+  position: relative;
+  overflow: visible;
+}
+
+.timeline-title {
+  margin-top: 18px;
+}
+
+.timeline-controls {
+  display: none;
+}
+
+.timeline-list {
+  position: relative;
+  display: grid;
+  gap: 24px;
+  padding: 18px 0 0;
+  margin: 0;
+  list-style: none;
+}
+
+.timeline-list::before {
+  position: absolute;
+  top: 28px;
+  bottom: 32px;
+  left: 100px;
+  width: 2px;
+  content: "";
+  background: linear-gradient(
+    to bottom,
+    var(--color-electric),
+    color-mix(in srgb, var(--color-steel) 46%, transparent)
+  );
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px 76px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: item-in 560ms var(--ease-out-expo) forwards;
+  animation-delay: var(--delay);
+}
+
+.period {
+  padding-top: 44px;
+  color: var(--color-electric);
+  font-size: 0.86rem;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.company-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.company-mark::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  content: "";
+  border: 2px solid var(--color-electric);
+  border-radius: 50%;
+  background: var(--color-void);
+  box-shadow: 0 0 18px var(--color-electric);
+  transform: translate(-55px, -50%);
+}
+
+.role-card {
+  padding: 22px;
+  background: color-mix(in srgb, var(--color-void) 82%, transparent);
+}
+
+.role-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.role-main h3 {
+  margin: 0;
+  color: var(--color-ice);
+  font-family: var(--font-display);
+  font-size: 1.24rem;
+  font-weight: 650;
+}
+
+.role-main p,
+.role-summary {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.role-main strong {
+  color: var(--color-electric);
+  font-weight: 700;
+}
+
+.role-main span::before {
+  content: " | ";
+}
+
+.role-link {
+  display: grid;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  color: var(--color-electric);
+  border: 1px solid color-mix(in srgb, var(--color-electric) 34%, transparent);
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.role-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+@keyframes item-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1201px) {
+  .timeline-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    padding-top: 42px;
+  }
+
+  .timeline-controls--desktop {
+    display: block;
+  }
+
+  .timeline-control {
+    position: absolute;
+    top: 72%;
+    z-index: 3;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--color-electric) 36%, transparent);
+    border-radius: 50%;
+    padding: 0;
+    color: var(--color-ice);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--color-void) 78%, transparent);
+    backdrop-filter: blur(14px);
+    transform: translateY(-8%);
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .timeline-control--prev {
+    left: -16px;
+  }
+
+  .timeline-control--prev .ui-icon {
+    transform: rotate(180deg);
+  }
+
+  .timeline-control--next {
+    right: -16px;
+  }
+
+  .timeline-control:hover:not(:disabled) {
+    border-color: color-mix(in srgb, var(--color-electric) 72%, transparent);
+    background: color-mix(in srgb, var(--color-electric) 14%, var(--color-ink));
+    box-shadow: 0 0 28px
+      color-mix(in srgb, var(--color-electric) 18%, transparent);
+  }
+
+  .timeline-control:disabled {
+    cursor: not-allowed;
+    opacity: 0.42;
+  }
+
+  .timeline-list::before {
+    top: 76px;
+    right: 40px;
+    bottom: auto;
+    left: 40px;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      var(--color-electric),
+      color-mix(in srgb, var(--color-steel) 46%, transparent)
+    );
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .period {
+    order: 1;
+    min-height: 20px;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .company-mark {
+    order: 2;
+    justify-self: center;
+    margin-top: 26px;
+  }
+
+  .company-mark::before {
+    top: -25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .role-card {
+    order: 3;
+    min-height: 300px;
+    padding: 18px;
+  }
+
+  .role-main {
+    display: block;
+  }
+
+  .role-link {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .period {
+    margin-right: 8px;
+    text-align: left;
+  }
+  .company-mark {
+    margin-left: 8px;
+  }
+  .company-mark::before {
+    left: calc(50% - 9px);
+  }
+}
+
+.show-more {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid color-mix(in srgb, var(--color-electric) 42%, transparent);
+  border-radius: 8px;
+  color: var(--color-electric);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--color-void) 62%, transparent);
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .timeline-list::before {
+    left: 78px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 10px 18px;
+  }
+
+  .period {
+    padding-top: 0;
+    font-size: 0.78rem;
+    text-align: right;
+  }
+
+  .company-mark {
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  .company-mark .ui-mark {
+    display: none;
+  }
+
+  .company-mark::before {
+    left: -11px;
+    top: 10px;
+    transform: translate(-50%, -50%);
+  }
+
+  .role-card {
+    grid-column: 2;
+    padding: 12px;
+    margin-top: -60px;
+    border: 0;
+    background: transparent;
+  }
+
+  .role-card:hover {
+    transform: none;
+  }
+
+  .role-main {
+    display: block;
+  }
+
+  .role-link {
+    display: none;
+  }
+}

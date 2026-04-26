@@ -1,36 +1,13 @@
-<script setup lang="ts">
-import IndexPage from './components/IndexPage.vue'
-</script>
-
 <template>
-  <IndexPage />
+  <div class="site-shell">
+    <NavBar />
+    <main class="content-layer">
+      <HomeSection />
+    </main>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<script setup lang="ts">
+import NavBar from '@/components/layout/NavBar.vue'
+import HomeSection from '@/components/sections/HomeSection.vue'
+</script>

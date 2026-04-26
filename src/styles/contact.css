@@ -1,0 +1,230 @@
+.contact-section {
+  position: relative;
+  z-index: 1;
+  padding: 34px 0 28px;
+  border-top: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--color-void) 94%, black);
+}
+
+.contact-shell {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--color-ice) 8%, transparent);
+  border-radius: 10px;
+  padding: 22px 20px 14px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--color-panel) 34%, transparent), color-mix(in srgb, black 38%, transparent)),
+    color-mix(in srgb, var(--color-void) 92%, transparent);
+  overflow: hidden;
+}
+
+.contact-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(180px, 0.56fr) minmax(220px, 0.64fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.brand-column,
+.link-column,
+.contact-column {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-logo {
+  width: 110px;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-role {
+  margin: 10px 0 0;
+  color: color-mix(in srgb, var(--color-ice) 82%, transparent);
+  font-size: 0.84rem;
+}
+
+.brand-copy {
+  max-width: 220px;
+  margin: 12px 0 0;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.social-link {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-ice) 12%, transparent);
+  border-radius: 50%;
+  color: color-mix(in srgb, var(--color-ice) 82%, transparent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: color-mix(in srgb, var(--color-ink) 72%, transparent);
+}
+
+.link-column h2,
+.contact-column h2 {
+  margin: 0 0 12px;
+  color: var(--color-electric);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer-link {
+  display: block;
+  width: fit-content;
+  margin-top: 10px;
+  color: color-mix(in srgb, var(--color-ice) 80%, transparent);
+  font-size: 0.86rem;
+}
+
+.contact-column .ui-button {
+  margin-top: 18px;
+}
+
+.network-field {
+  position: absolute;
+  inset: 0 -18px 0 auto;
+  width: min(360px, 38%);
+  opacity: 0.78;
+  pointer-events: none;
+  overflow: hidden;
+  mask-image: linear-gradient(to left, black 12%, transparent 100%);
+}
+
+.network-field::before,
+.network-field::after {
+  position: absolute;
+  content: "";
+}
+
+.network-field::before {
+  inset: 16px 0 0 18%;
+  background-image:
+    linear-gradient(115deg, transparent 0 45%, color-mix(in srgb, var(--color-electric) 22%, transparent) 45.4% 45.8%, transparent 46.2%),
+    linear-gradient(28deg, transparent 0 50%, color-mix(in srgb, var(--color-steel) 24%, transparent) 50.3% 50.8%, transparent 51.2%),
+    radial-gradient(circle, color-mix(in srgb, var(--color-electric) 70%, transparent) 1px, transparent 1.8px);
+  background-size: 220px 150px, 190px 130px, 18px 18px;
+  background-position: 8px 2px, 28px 38px, 0 0;
+}
+
+.network-field::after {
+  top: 50%;
+  right: 18%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-electric) 18%, transparent), transparent 68%);
+  transform: translateY(-50%);
+}
+
+.network-core {
+  position: absolute;
+  top: 50%;
+  right: 27%;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--color-electric) 36%, transparent);
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, white 34%, var(--color-electric)) 0 3px, transparent 4px),
+    color-mix(in srgb, var(--color-electric) 12%, transparent);
+  box-shadow:
+    0 0 34px color-mix(in srgb, var(--color-electric) 24%, transparent),
+    inset 0 0 18px color-mix(in srgb, var(--color-electric) 18%, transparent);
+  transform: translateY(-50%);
+}
+
+.network-ring {
+  position: absolute;
+  top: 50%;
+  right: 27%;
+  border: 1px solid color-mix(in srgb, var(--color-electric) 24%, transparent);
+  border-radius: 50%;
+  transform: translate(29%, -50%);
+}
+
+.network-ring--outer {
+  width: 190px;
+  height: 190px;
+}
+
+.network-ring--inner {
+  width: 118px;
+  height: 118px;
+  border-color: color-mix(in srgb, var(--color-ice) 12%, transparent);
+}
+
+.network-node {
+  position: absolute;
+  z-index: 1;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-electric);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--color-electric) 74%, transparent);
+}
+
+.network-node--a {
+  top: 30%;
+  right: 43%;
+}
+
+.network-node--b {
+  top: 66%;
+  right: 18%;
+}
+
+.network-node--c {
+  top: 22%;
+  right: 15%;
+}
+
+.copyright {
+  position: relative;
+  z-index: 1;
+  margin: 22px 0 0;
+  color: color-mix(in srgb, var(--color-ice) 46%, transparent);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+@media (max-width: 1120px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .network-field {
+    width: 48%;
+    opacity: 0.42;
+  }
+}
+
+@media (max-width: 720px) {
+  .contact-shell {
+    padding: 20px 16px 14px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .network-field {
+    display: none;
+  }
+}
