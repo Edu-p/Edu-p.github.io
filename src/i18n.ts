@@ -60,6 +60,7 @@ const messages = {
       titleAccent: 'impact.',
       description:
         'Scientific work developed in Artificial Intelligence, AI Safety, Natural Language Processing, and Federated Learning.',
+      identifyAria: 'Academic identity and profiles',
       publications: 'Publications',
       readPaper: 'Read paper',
       viewCode: 'View code',
@@ -342,6 +343,7 @@ const messages = {
       titleAccent: 'impacto.',
       description:
         'Producao cientifica desenvolvida em temas de Inteligencia Artificial, Seguranca de IA, Processamento de Linguagem Natural e Aprendizado Federado.',
+      identifyAria: 'Identidade e perfis academicos',
       publications: 'Publicacoes',
       readPaper: 'Ler artigo',
       viewCode: 'Ver codigo',

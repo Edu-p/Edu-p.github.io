@@ -32,13 +32,26 @@
         </div>
       </dl>
     </article>
+
+    <div class="academic-identity-wrapper">
+      <AcademicIdentity />
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import ufpeLogoUrl from '@/assets/ufpe-logo.png'
 import UiIcon from '@/components/ui/UiIcon.vue'
+import AcademicIdentity from '@/components/visuals/academic/AcademicIdentity.vue'
 import { useI18n } from '@/i18n'
 
 const { t } = useI18n()
 </script>
+
+<style scoped>
+.academic-identity-wrapper {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+</style>

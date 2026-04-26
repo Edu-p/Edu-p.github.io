@@ -30,5 +30,6 @@ const contactItems = computed(() => [
   { icon: 'alternate_email' as const, label: 'eduardoaamorim0@gmail.com', href: 'mailto:eduardoaamorim0@gmail.com' },
   { icon: 'link' as const, label: 'LinkedIn', href: 'https://www.linkedin.com/in/eduardo-ale-amorim' },
   { icon: 'github' as const, label: 'GitHub', href: 'https://github.com/Edu-p' },
+  { icon: 'link' as const, label: 'ORCID', href: 'https://orcid.org/0009-0003-3862-3246' },
 ])
 </script>
