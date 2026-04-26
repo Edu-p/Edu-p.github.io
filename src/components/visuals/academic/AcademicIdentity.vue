@@ -1,19 +1,5 @@
 <template>
-  <ul class="academic-identity" :aria-label="t.academic.identifyAria">
-    <li v-for="item in identityItems" :key="item.label">
-      <span class="identity-icon" aria-hidden="true">
-        <UiIcon :name="item.icon" size="sm" />
-      </span>
-      <a
-        class="identity-link focus-ring"
-        :href="item.href"
-        target="_blank"
-        rel="noreferrer"
-      >
-        {{ item.label }}
-      </a>
-    </li>
-  </ul>
+
 </template>
 
 <script setup lang="ts">

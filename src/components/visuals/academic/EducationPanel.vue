@@ -18,10 +18,14 @@
       <dl class="education-meta">
         <div>
           <span class="education-meta-icon" aria-hidden="true">
-            <UiIcon name="location_on" size="sm" />
+            <UiIcon name="link" size="sm" />
           </span>
-          <dt>{{ t.academic.location }}</dt>
-          <dd>{{ t.about.location }}</dd>
+          <dt>ORCID</dt>
+          <dd>
+            <a href="https://orcid.org/0009-0003-3862-3246" target="_blank" rel="noreferrer" class="orcid-link">
+              ORCID
+            </a>
+          </dd>
         </div>
       </dl>
     </article>
@@ -46,5 +50,20 @@ const { t } = useI18n()
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--color-border);
+}
+
+.orcid-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.orcid-link:hover {
+  color: var(--color-accent);
+}
+
+.orcid-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 </style>
