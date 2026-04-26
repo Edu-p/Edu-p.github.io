@@ -36,7 +36,7 @@ withDefaults(
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 6.8rem);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: clamp(3rem, 4.7vw, 7rem);
   letter-spacing: 0;
   text-wrap: balance;
 }

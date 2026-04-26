@@ -12,6 +12,9 @@ const messages = {
       menuAria: 'Open menu',
       talk: "Let's talk",
       language: 'Language',
+      theme: 'Theme',
+      dark: 'Dark',
+      light: 'Light',
       items: {
         home: 'Home',
         about: 'About',
@@ -22,22 +25,36 @@ const messages = {
       },
     },
     hero: {
-      eyebrow: 'AI Engineer',
-      title: 'Artificial intelligence for products that leave the lab.',
+      eyebrow: 'Senior AI/ML Engineer',
+      titleLead: 'Transforming artificial intelligence into',
+      titleAccent: 'real impact.',
       description:
-        'I design, train, and ship systems with machine learning, NLP, and computer vision, connecting research, product, and real-world impact.',
-      primaryCta: 'View my resume',
-      secondaryCta: 'Contact now',
+        'AI Engineer with over 5 years of experience building scalable multi-agent systems and production ML solutions.',
+      primaryCta: 'View my CV',
+      secondaryCta: 'View projects',
+      locationLabel: 'Location',
+      locationValue: 'Recife, PE, Brazil',
+      availabilityLabel: 'Available for',
+      availabilityValue: 'Projects and opportunities',
       specialties: 'Specialties',
-      signals: ['Machine Learning', 'NLP', 'Computer Vision', 'MLOps', 'AI Agents'],
+      techStack: [
+        'Python',
+        'GCP',
+        'Docker',
+        'Kubernetes',
+        'FastAPI',
+        'LangChain',
+        'PyTorch',
+        'PostgreSQL',
+        'Redis',
+      ],
     },
     about: {
       imageAlt: 'Photo of Eduardo A. A.',
       eyebrow: 'About me',
       title: 'Science, logic, and purpose.',
       titleAccent: 'That is my formula.',
-      copy:
-        'AI Engineer with more than 5 years connecting research, product, and scalable cloud systems. Specialist in Machine Learning, MLOps, and intelligent agents.',
+      copy: 'AI Engineer with more than 5 years connecting research, product, and scalable cloud systems. Specialist in Machine Learning, MLOps, and intelligent agents.',
       contactAria: 'Contact information',
       location: 'Recife, PE, Brazil',
       stackEyebrow: 'Technologies I use',
@@ -48,9 +65,35 @@ const messages = {
         { icon: 'TOP', value: '100%', label: 'focus on impact and learning' },
       ],
       techGroups: [
-        { title: 'AI & Machine Learning', items: ['Python', 'PyTorch', 'Scikit-Learn', 'LangChain', 'LangGraph', 'LLMs', 'NLTK', 'SpaCy'] },
-        { title: 'Backend & Data', items: ['FastAPI', 'Celery', 'Redis', 'PostgreSQL', 'pgvector', 'MongoDB', 'SQL'] },
-        { title: 'Cloud & DevOps', items: ['Cloud Run', 'Cloud Build', 'Vertex AI', 'Kubeflow', 'Docker', 'Kubernetes', 'CI/CD'] },
+        {
+          title: 'AI & Machine Learning',
+          items: [
+            'Python',
+            'PyTorch',
+            'Scikit-Learn',
+            'LangChain',
+            'LangGraph',
+            'LLMs',
+            'NLTK',
+            'SpaCy',
+          ],
+        },
+        {
+          title: 'Backend & Data',
+          items: ['FastAPI', 'Celery', 'Redis', 'PostgreSQL', 'pgvector', 'MongoDB', 'SQL'],
+        },
+        {
+          title: 'Cloud & DevOps',
+          items: [
+            'Cloud Run',
+            'Cloud Build',
+            'Vertex AI',
+            'Kubeflow',
+            'Docker',
+            'Kubernetes',
+            'CI/CD',
+          ],
+        },
         { title: 'Frontend & Other', items: ['React', 'HTML', 'CSS', 'Git'] },
       ],
     },
@@ -78,35 +121,42 @@ const messages = {
       papers: [
         {
           mark: 'SB',
-          venue: 'SBSC 2026',
+          venue: 'SBSC',
+          year: '2026',
           track: 'AI Safety & Collaborative Systems',
-          title: 'Operationalizing the Traffic Light Protocol for Native Portuguese Language Model Guardrails in Collaborative Workflows',
+          title:
+            'Operationalizing the Traffic Light Protocol for Native Portuguese Language Model Guardrails in Collaborative Workflows',
           event: 'SBSC 2026',
           topic: 'AI Safety & Collaborative Systems',
           authors: 'E. A. Amorim, et al.',
-          summary: 'Proposal and evaluation of a safety protocol for Portuguese language models applied to collaborative workflows.',
+          summary:
+            'The integration of Language Models (LMs) into collaborative environments, such as corporate chat platforms, shared document editors, and internal copilots, introduces distinct security risks. This work proposes a reference architecture for operationalizing LM moderation for Portuguese contexts using SecBERT as a pre-filtering layer, with a Traffic Light workflow, tunable thresholds, and auditing roles. A trace-driven simulation over 29,432 interactions shows P99 latency of 18.54ms and a mitigation strategy that reduces human intervention to 1.9% of interactions.',
           codeHref: 'https://github.com/Edu-p/traffic-light-secbert-br',
         },
         {
           mark: 'IJ',
-          venue: 'IJCNN 2026',
+          venue: 'IJCNN',
+          year: '2026',
           track: 'AI Safety & NLP',
           title: 'Robustness of Language Models against Portuguese Harmful Prompts',
           event: 'IJCNN 2026',
           topic: 'AI Safety & NLP',
           authors: 'E. A. Amorim, et al.',
-          summary: 'Robustness analysis of LLMs against harmful Portuguese prompts and mitigation strategies.',
+          summary:
+            'Language Models (LMs) are vulnerable to jailbreak prompts designed to bypass safety constraints, while Portuguese resources and defenses remain scarce. We present SecBERT, a Portuguese classifier built on BERTimbau Base to detect policy-violating and harmful prompts, trained on a 29,432-instance translated WildJailbreak subset that preserves the original four-way taxonomy. Fine-tuned SecBERT reaches 95.6% F1, 99.2% AUC, and 91.2% KS, outperforming non-Portuguese-centric baselines.',
           codeHref: 'https://github.com/Edu-p/secbert-pt',
         },
         {
           mark: 'VI',
-          venue: 'VISAPP 2023',
+          venue: 'VISAPP',
+          year: '2023',
           track: 'Federated Learning & Computer Vision',
           title: 'FedBID and FedDocs: A Dataset and System for Federated Document Analysis',
           event: 'VISAPP 2023',
           topic: 'Federated Learning & Computer Vision',
           authors: 'E. A. Amorim, et al.',
-          summary: 'Presentation of a dataset and system for document analysis in a federated learning scenario.',
+          summary:
+            'We present FedBID, a federated dataset for document classification, and FedDocs, a system for evaluating federated document analysis without moving data from user devices. The work describes multiple dataset distributions and evaluates FedDocs across balanced, unbalanced, and siloed federated training scenarios, showing how FedBID can support research on privacy-aware document classification.',
           paperHref: 'https://www.scitepress.org/Papers/2023/116911/116911.pdf',
         },
       ],
@@ -182,7 +232,8 @@ const messages = {
           icon: 'GC',
           title: 'Granting of Credit',
           period: 'Credit modeling',
-          summary: 'Credit concession analysis combining multiple cases and building a credit evaluation model.',
+          summary:
+            'Credit concession analysis combining multiple cases and building a credit evaluation model.',
           skills: ['Machine Learning', 'Credit Risk', 'Data Analysis'],
           href: 'https://github.com/Edu-p/granting-of-credit',
         },
@@ -219,7 +270,8 @@ const messages = {
           role: 'Senior AI Engineer',
           company: 'TELUS Digital',
           location: 'Vancouver, Canada (Remote)',
-          summary: 'Architecture of multi-agent systems on GCP and scalable ML pipelines for automatic insights.',
+          summary:
+            'Architecture of multi-agent systems on GCP and scalable ML pipelines for automatic insights.',
           tags: ['GCP', 'Kubeflow', 'Vertex AI', 'Celery', 'Redis', 'CI/CD', 'OAuth2'],
         },
         {
@@ -228,7 +280,8 @@ const messages = {
           role: 'AI Engineer',
           company: 'Amigo Tech',
           location: 'Brazil',
-          summary: 'Development of agents with LangGraph and LangChain using Redis and PostgreSQL with pgvector.',
+          summary:
+            'Development of agents with LangGraph and LangChain using Redis and PostgreSQL with pgvector.',
           tags: ['FastAPI', 'LangGraph', 'LangChain', 'Redis', 'PostgreSQL', 'pgvector'],
         },
         {
@@ -237,7 +290,8 @@ const messages = {
           role: 'ML Engineer',
           company: 'Neurotech',
           location: 'Brazil',
-          summary: 'Hybrid ML models that exceeded annual goals for a Top 10 bank, with technical leadership in audits.',
+          summary:
+            'Hybrid ML models that exceeded annual goals for a Top 10 bank, with technical leadership in audits.',
           tags: ['Python', 'Scikit-Learn', 'XGBoost', 'Machine Learning', 'Feature Engineering'],
         },
         {
@@ -246,7 +300,8 @@ const messages = {
           role: 'ML Engineer',
           company: 'Voxar Labs',
           location: 'Brazil',
-          summary: 'Research in Federated Learning and deployment of detection models on drones with Azure AKS.',
+          summary:
+            'Research in Federated Learning and deployment of detection models on drones with Azure AKS.',
           tags: ['Flower', 'PySyft', 'Azure', 'Docker', 'Kubernetes', 'Grafana'],
         },
         {
@@ -255,7 +310,8 @@ const messages = {
           role: 'ML Engineer',
           company: 'AiBox Lab',
           location: 'Brazil',
-          summary: 'NLP for textual analysis metrics with NLTK and SpaCy, including a classifier with 95.1% accuracy.',
+          summary:
+            'NLP for textual analysis metrics with NLTK and SpaCy, including a classifier with 95.1% accuracy.',
           tags: ['NLP', 'NLTK', 'SpaCy', 'Scikit-Learn', 'Python'],
         },
       ],
@@ -293,6 +349,9 @@ const messages = {
       menuAria: 'Abrir menu',
       talk: 'Vamos conversar',
       language: 'Idioma',
+      theme: 'Tema',
+      dark: 'Escuro',
+      light: 'Claro',
       items: {
         home: 'Inicio',
         about: 'Sobre',
@@ -303,22 +362,36 @@ const messages = {
       },
     },
     hero: {
-      eyebrow: 'Engenheiro de IA',
-      title: 'Inteligencia artificial para produtos que saem do laboratorio.',
+      eyebrow: 'Senior AI/ML Engineer',
+      titleLead: 'Transformando inteligencia artificial em',
+      titleAccent: 'impacto real.',
       description:
-        'Eu projeto, treino e entrego sistemas com machine learning, NLP e visao computacional, conectando pesquisa, produto e impacto real.',
-      primaryCta: 'Ver meu curriculo',
-      secondaryCta: 'Chamar agora',
-      specialties: 'Especialidades',
-      signals: ['Machine Learning', 'NLP', 'Computer Vision', 'MLOps', 'Agentes de IA'],
+        'Engenheiro de IA com mais de 5 anos de experiencia construindo sistemas escalaveis, multi-agentes e solucoes de ML em producao.',
+      primaryCta: 'Ver meu CV',
+      secondaryCta: 'Ver projetos',
+      locationLabel: 'Localizacao',
+      locationValue: 'Recife, PE, Brasil',
+      availabilityLabel: 'Disponivel para',
+      availabilityValue: 'Projetos e oportunidades',
+      specialties: 'Tecnologias',
+      techStack: [
+        'Python',
+        'GCP',
+        'Docker',
+        'Kubernetes',
+        'FastAPI',
+        'LangChain',
+        'PyTorch',
+        'PostgreSQL',
+        'Redis',
+      ],
     },
     about: {
       imageAlt: 'Foto de Eduardo A. A.',
       eyebrow: 'Sobre mim',
       title: 'Ciencia, logica e proposito.',
       titleAccent: 'Essa e a minha formula.',
-      copy:
-        'Engenheiro de IA com mais de 5 anos conectando pesquisa, produto e sistemas escalaveis em nuvem. Especialista em Machine Learning, MLOps e agentes inteligentes.',
+      copy: 'Engenheiro de IA com mais de 5 anos conectando pesquisa, produto e sistemas escalaveis em nuvem. Especialista em Machine Learning, MLOps e agentes inteligentes.',
       contactAria: 'Informacoes de contato',
       location: 'Recife, PE, Brasil',
       stackEyebrow: 'Tecnologias que utilizo',
@@ -329,10 +402,39 @@ const messages = {
         { icon: 'TOP', value: '100%', label: 'foco em impacto e aprendizado' },
       ],
       techGroups: [
-        { title: 'IA & Machine Learning', items: ['Python', 'PyTorch', 'Scikit-Learn', 'LangChain', 'LangGraph', 'LLMs', 'NLTK', 'SpaCy'] },
-        { title: 'Backend & Dados', items: ['FastAPI', 'Celery', 'Redis', 'PostgreSQL', 'pgvector', 'MongoDB', 'SQL'] },
-        { title: 'Cloud & DevOps', items: ['Cloud Run', 'Cloud Build', 'Vertex AI', 'Kubeflow', 'Docker', 'Kubernetes', 'CI/CD'] },
-        { title: 'Frontend & Outros', items: ['React', 'JavaScript', 'HTML', 'CSS', 'Git', 'Linux'] },
+        {
+          title: 'IA & Machine Learning',
+          items: [
+            'Python',
+            'PyTorch',
+            'Scikit-Learn',
+            'LangChain',
+            'LangGraph',
+            'LLMs',
+            'NLTK',
+            'SpaCy',
+          ],
+        },
+        {
+          title: 'Backend & Dados',
+          items: ['FastAPI', 'Celery', 'Redis', 'PostgreSQL', 'pgvector', 'MongoDB', 'SQL'],
+        },
+        {
+          title: 'Cloud & DevOps',
+          items: [
+            'Cloud Run',
+            'Cloud Build',
+            'Vertex AI',
+            'Kubeflow',
+            'Docker',
+            'Kubernetes',
+            'CI/CD',
+          ],
+        },
+        {
+          title: 'Frontend & Outros',
+          items: ['React', 'JavaScript', 'HTML', 'CSS', 'Git', 'Linux'],
+        },
       ],
     },
     academic: {
@@ -359,35 +461,42 @@ const messages = {
       papers: [
         {
           mark: 'SB',
-          venue: 'SBSC 2026',
+          venue: 'SBSC',
+          year: '2026',
           track: 'AI Safety & Collaborative Systems',
-          title: 'Operationalizing the Traffic Light Protocol for Native Portuguese Language Model Guardrails in Collaborative Workflows',
+          title:
+            'Operationalizing the Traffic Light Protocol for Native Portuguese Language Model Guardrails in Collaborative Workflows',
           event: 'SBSC 2026',
           topic: 'AI Safety & Collaborative Systems',
           authors: 'E. A. Amorim, et al.',
-          summary: 'Proposta e avaliacao de um protocolo de seguranca para modelos de linguagem em portugues aplicado a fluxos colaborativos.',
+          summary:
+            'The integration of Language Models (LMs) into collaborative environments, such as corporate chat platforms, shared document editors, and internal copilots, introduces distinct security risks. This work proposes a reference architecture for operationalizing LM moderation for Portuguese contexts using SecBERT as a pre-filtering layer, with a Traffic Light workflow, tunable thresholds, and auditing roles. A trace-driven simulation over 29,432 interactions shows P99 latency of 18.54ms and a mitigation strategy that reduces human intervention to 1.9% of interactions.',
           codeHref: 'https://github.com/Edu-p/traffic-light-secbert-br',
         },
         {
           mark: 'IJ',
-          venue: 'IJCNN 2026',
+          venue: 'IJCNN',
+          year: '2026',
           track: 'AI Safety & NLP',
           title: 'Robustness of Language Models against Portuguese Harmful Prompts',
           event: 'IJCNN 2026',
           topic: 'AI Safety & NLP',
           authors: 'E. A. Amorim, et al.',
-          summary: 'Analise de robustez de LLMs diante de prompts prejudiciais em portugues e estrategias de mitigacao.',
+          summary:
+            'Language Models (LMs) are vulnerable to jailbreak prompts designed to bypass safety constraints, while Portuguese resources and defenses remain scarce. We present SecBERT, a Portuguese classifier built on BERTimbau Base to detect policy-violating and harmful prompts, trained on a 29,432-instance translated WildJailbreak subset that preserves the original four-way taxonomy. Fine-tuned SecBERT reaches 95.6% F1, 99.2% AUC, and 91.2% KS, outperforming non-Portuguese-centric baselines.',
           codeHref: 'https://github.com/Edu-p/secbert-pt',
         },
         {
           mark: 'VI',
-          venue: 'VISAPP 2023',
+          venue: 'VISAPP',
+          year: '2023',
           track: 'Federated Learning & Computer Vision',
           title: 'FedBID and FedDocs: A Dataset and System for Federated Document Analysis',
           event: 'VISAPP 2023',
           topic: 'Federated Learning & Computer Vision',
           authors: 'E. A. Amorim, et al.',
-          summary: 'Apresentacao de um dataset e de um sistema para analise de documentos em cenario de aprendizado federado.',
+          summary:
+            'Apresentacao de um dataset e de um sistema para analise de documentos em cenario de aprendizado federado.',
           paperHref: 'https://www.scitepress.org/Papers/2023/116911/116911.pdf',
         },
       ],
@@ -463,7 +572,8 @@ const messages = {
           icon: 'GC',
           title: 'Granting of Credit',
           period: 'Modelagem de credito',
-          summary: 'Analise de concessao de credito combinando diferentes casos e um modelo de avaliacao.',
+          summary:
+            'Analise de concessao de credito combinando diferentes casos e um modelo de avaliacao.',
           skills: ['Machine Learning', 'Risco de Credito', 'Analise de Dados'],
           href: 'https://github.com/Edu-p/granting-of-credit',
         },
@@ -500,7 +610,8 @@ const messages = {
           role: 'Senior AI Engineer',
           company: 'TELUS Digital',
           location: 'Vancouver, Canada (Remoto)',
-          summary: 'Arquitetura de sistemas multi-agentes no GCP e pipelines de ML escalaveis para insights automaticos.',
+          summary:
+            'Arquitetura de sistemas multi-agentes no GCP e pipelines de ML escalaveis para insights automaticos.',
           tags: ['GCP', 'Kubeflow', 'Vertex AI', 'Celery', 'Redis', 'CI/CD', 'OAuth2'],
         },
         {
@@ -509,7 +620,8 @@ const messages = {
           role: 'AI Engineer',
           company: 'Amigo Tech',
           location: 'Brasil',
-          summary: 'Desenvolvimento de agentes com LangGraph e LangChain, usando Redis e PostgreSQL com pgvector.',
+          summary:
+            'Desenvolvimento de agentes com LangGraph e LangChain, usando Redis e PostgreSQL com pgvector.',
           tags: ['FastAPI', 'LangGraph', 'LangChain', 'Redis', 'PostgreSQL', 'pgvector'],
         },
         {
@@ -518,7 +630,8 @@ const messages = {
           role: 'ML Engineer',
           company: 'Neurotech',
           location: 'Brasil',
-          summary: 'Modelos hibridos de ML que superaram metas anuais para banco Top 10, com lideranca tecnica em auditorias.',
+          summary:
+            'Modelos hibridos de ML que superaram metas anuais para banco Top 10, com lideranca tecnica em auditorias.',
           tags: ['Python', 'Scikit-Learn', 'XGBoost', 'Machine Learning', 'Feature Engineering'],
         },
         {
@@ -527,7 +640,8 @@ const messages = {
           role: 'ML Engineer',
           company: 'Voxar Labs',
           location: 'Brasil',
-          summary: 'Pesquisa em Federated Learning e deploy de modelos de deteccao em drones no Azure AKS.',
+          summary:
+            'Pesquisa em Federated Learning e deploy de modelos de deteccao em drones no Azure AKS.',
           tags: ['Flower', 'PySyft', 'Azure', 'Docker', 'Kubernetes', 'Grafana'],
         },
         {
@@ -536,7 +650,8 @@ const messages = {
           role: 'ML Engineer',
           company: 'AiBox Lab',
           location: 'Brasil',
-          summary: 'NLP para metricas de analise textual com NLTK e SpaCy, incluindo classificador com 95.1% de acuracia.',
+          summary:
+            'NLP para metricas de analise textual com NLTK e SpaCy, incluindo classificador com 95.1% de acuracia.',
           tags: ['NLP', 'NLTK', 'SpaCy', 'Scikit-Learn', 'Python'],
         },
       ],

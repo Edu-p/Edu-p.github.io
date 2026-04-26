@@ -1,69 +1,60 @@
 <template>
-  <section class="academic-panel education-panel" aria-labelledby="education-title">
-    <header class="panel-title">
-      <span class="panel-icon" aria-hidden="true"><UiIcon name="school" size="sm" /></span>
-      <h3 id="education-title">{{ t.academic.education }}</h3>
+  <UiCard
+    tag="section"
+    variant="panel"
+    class="h-[-webkit-fill-available] p-[22px] max-[640px]:p-[18px]"
+    aria-labelledby="education-title"
+  >
+    <header class="mb-5 flex items-center gap-3.5">
+      <span
+        class="grid h-[30px] min-w-[30px] place-items-center rounded-md border border-[color-mix(in_srgb,var(--color-electric)_32%,transparent)] text-[0.68rem] font-black tracking-[0.08em] text-[var(--color-electric)]"
+        aria-hidden="true"
+        ><UiIcon name="school" size="sm"
+      /></span>
+      <h3 id="education-title" class="m-0 text-base font-bold uppercase text-[var(--color-ice)]">
+        {{ t.academic.education }}
+      </h3>
     </header>
 
-    <article class="education-card">
-      <div class="ufpe-mark" aria-hidden="true">
-        <img :src="ufpeLogoUrl" alt="" />
+    <UiCard
+      tag="article"
+      variant="flat"
+      class="grid grid-cols-[84px_minmax(0,1fr)] gap-[18px] p-4 max-[640px]:grid-cols-1"
+    >
+      <div class="grid min-h-[72px] w-[72px] place-items-center" aria-hidden="true">
+        <img class="block w-[50px] object-contain invert-light" :src="ufpeLogoUrl" alt="UFPE logo" />
       </div>
 
-      <div class="education-copy">
-        <h4>Centro de Informatica UFPE (CIn)</h4>
-        <p>{{ t.academic.degree }}</p>
-      </div>
-
-      <dl class="education-meta">
-        <div>
-          <span class="education-meta-icon" aria-hidden="true">
-            <UiIcon name="link" size="sm" />
-          </span>
-          <dt>ORCID</dt>
-          <dd>
-            <a href="https://orcid.org/0009-0003-3862-3246" target="_blank" rel="noreferrer" class="orcid-link">
+      <div>
+        <h4 class="m-0 text-[1.04rem] font-extrabold text-[var(--color-ice)]">
+          {{ t.academic.degree }}
+        </h4>
+        <p class="mt-2.5 mb-0 text-[0.7rem] text-[var(--color-electric)]">
+          Centro de Informatica UFPE (CIn)
+        </p>
+        <dl class="mt-2 grid grid-cols-2 gap-2.5 p-0 max-[640px]:grid-cols-1">
+          <div class="min-w-0">
+            <dt
+              class="absolute -m-px size-px overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0_0_0_0)]"
+            >
               ORCID
-            </a>
-          </dd>
-        </div>
-      </dl>
-    </article>
-
-    <div class="academic-identity-wrapper">
-      <AcademicIdentity />
-    </div>
-  </section>
+            </dt>
+            <dd class="m-0">
+              <UiMetaTag icon="link" label="ORCID" href="https://orcid.org/0009-0003-3862-3246" />
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </UiCard>
+  </UiCard>
 </template>
 
 <script setup lang="ts">
 import ufpeLogoUrl from '@/assets/ufpe-logo.png'
+import UiCard from '@/components/ui/UiCard.vue'
 import UiIcon from '@/components/ui/UiIcon.vue'
-import AcademicIdentity from '@/components/visuals/academic/AcademicIdentity.vue'
+import UiMetaTag from '@/components/ui/UiMetaTag.vue'
 import { useI18n } from '@/i18n'
 
 const { t } = useI18n()
 </script>
-
-<style scoped>
-.academic-identity-wrapper {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
-}
-
-.orcid-link {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.2s ease;
-}
-
-.orcid-link:hover {
-  color: var(--color-accent);
-}
-
-.orcid-link:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-</style>

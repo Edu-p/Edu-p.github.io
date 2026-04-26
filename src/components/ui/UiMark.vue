@@ -38,6 +38,18 @@ const initials = computed(() => {
 </script>
 
 <style scoped>
+:root[data-theme='dark'] .ui-mark {
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--color-electric) 12%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      color-mix(in srgb, var(--color-electric) 16%, transparent),
+      transparent 64%
+    ),
+    color-mix(in srgb, var(--color-void) 78%, transparent);
+}
 .ui-mark {
   display: grid;
   place-items: center;
@@ -46,12 +58,6 @@ const initials = computed(() => {
   font-family: var(--font-display);
   font-weight: 900;
   letter-spacing: 0.03em;
-  background:
-    radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--color-electric) 16%, transparent), transparent 64%),
-    color-mix(in srgb, var(--color-void) 78%, transparent);
-  box-shadow:
-    0 0 18px color-mix(in srgb, var(--color-electric) 12%, transparent),
-    inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
 }
 
 .ui-mark--circle {

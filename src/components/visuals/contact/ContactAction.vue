@@ -1,6 +1,13 @@
 <template>
-  <section class="contact-column">
-    <UiButton href="https://www.linkedin.com/in/eduardo-ale-amorim" target="_blank" rel="noreferrer" variant="ghost" arrow>{{ t.contact.talk }}</UiButton>
+  <section class="relative z-[1] [&_.ui-button]:mt-[18px]">
+    <UiButton
+      href="https://www.linkedin.com/in/eduardo-ale-amorim"
+      target="_blank"
+      rel="noreferrer"
+      variant="ghost"
+      arrow
+      >{{ t.contact.talk }}</UiButton
+    >
   </section>
 </template>
 

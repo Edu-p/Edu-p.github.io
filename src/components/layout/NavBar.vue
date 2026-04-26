@@ -2,16 +2,36 @@
   <header class="nav-wrap">
     <nav class="container nav" :aria-label="t.nav.aria">
       <a class="brand focus-ring" href="#inicio" :aria-label="t.nav.brandAria">
-        <img :src="logoUrl" alt="Eduardo A. A." width="116" height="36" />
+        <img :src="logoUrl" class="invert-light" alt="Eduardo A. A." width="116" height="36" />
       </a>
 
       <div class="mobile-actions">
-        <button class="language-button focus-ring language-button--mobile" type="button" :aria-label="t.nav.language" @click="toggleLocale">
+        <button
+          class="theme-button focus-ring"
+          type="button"
+          :aria-label="`${t.nav.theme}: ${themeToggleLabel}`"
+          @click="toggleTheme"
+        >
+          <UiIcon :name="themeIcon" size="sm" />
+        </button>
+
+        <button
+          class="language-button focus-ring language-button--mobile"
+          type="button"
+          :aria-label="t.nav.language"
+          @click="toggleLocale"
+        >
           {{ locale.toUpperCase() }}
         </button>
 
-        <button class="menu-button focus-ring" type="button" :aria-expanded="isMenuOpen" aria-controls="main-menu"
-          :aria-label="t.nav.menuAria" @click="isMenuOpen = !isMenuOpen">
+        <button
+          class="menu-button focus-ring"
+          type="button"
+          :aria-expanded="isMenuOpen"
+          aria-controls="main-menu"
+          :aria-label="t.nav.menuAria"
+          @click="isMenuOpen = !isMenuOpen"
+        >
           <span :class="{ active: isMenuOpen }"></span>
           <span :class="{ active: isMenuOpen }"></span>
           <span :class="{ active: isMenuOpen }"></span>
@@ -19,18 +39,46 @@
       </div>
 
       <div id="main-menu" class="nav-panel" :class="{ open: isMenuOpen }">
-        <a v-for="item in menuItems" :key="item.href" class="nav-link focus-ring" :href="item.href"
-          @click="isMenuOpen = false">
+        <a
+          v-for="item in menuItems"
+          :key="item.href"
+          class="nav-link focus-ring"
+          :class="{ active: activeHref === item.href }"
+          :aria-current="activeHref === item.href ? 'page' : undefined"
+          :href="item.href"
+          @click="isMenuOpen = false"
+        >
           {{ item.label }}
         </a>
       </div>
 
       <div class="nav-actions">
-        <button class="language-button focus-ring language-button--desktop" type="button" :aria-label="t.nav.language" @click="toggleLocale">
+        <button
+          class="theme-button focus-ring"
+          type="button"
+          :aria-label="`${t.nav.theme}: ${themeToggleLabel}`"
+          @click="toggleTheme"
+        >
+          <UiIcon :name="themeIcon" size="sm" />
+        </button>
+
+        <button
+          class="language-button focus-ring language-button--desktop"
+          type="button"
+          :aria-label="t.nav.language"
+          @click="toggleLocale"
+        >
           {{ locale.toUpperCase() }}
         </button>
 
-        <UiButton class="talk-button" href="https://www.linkedin.com/in/eduardo-ale-amorim" target="_blank" rel="noreferrer" variant="ghost" arrow>
+        <UiButton
+          class="talk-button"
+          href="https://www.linkedin.com/in/eduardo-ale-amorim"
+          target="_blank"
+          rel="noreferrer"
+          variant="ghost"
+          arrow
+        >
           {{ t.nav.talk }}
         </UiButton>
       </div>
@@ -39,13 +87,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import logoUrl from '@/assets/logo.png'
 import UiButton from '@/components/ui/UiButton.vue'
+import UiIcon from '@/components/ui/UiIcon.vue'
 import { useI18n } from '@/i18n'
 
+type ThemeMode = 'dark' | 'light'
+
+const THEME_STORAGE_KEY = 'eduardo-portfolio-theme'
 const isMenuOpen = ref(false)
+const activeHref = ref('#inicio')
 const { locale, t, toggleLocale } = useI18n()
+const savedTheme =
+  typeof window !== 'undefined' ? window.localStorage.getItem(THEME_STORAGE_KEY) : null
+const theme = ref<ThemeMode>(savedTheme === 'light' ? 'light' : 'dark')
 
 const menuItems = computed(() => [
   { label: t.value.nav.items.home, href: '#inicio' },
@@ -55,6 +111,49 @@ const menuItems = computed(() => [
   { label: t.value.nav.items.projects, href: '#projetos' },
   { label: t.value.nav.items.contact, href: '#contato' },
 ])
+
+const themeToggleLabel = computed(() =>
+  theme.value === 'dark' ? t.value.nav.light : t.value.nav.dark,
+)
+const themeIcon = computed(() => (theme.value === 'dark' ? 'light_mode' : 'dark_mode'))
+
+function toggleTheme() {
+  theme.value = theme.value === 'dark' ? 'light' : 'dark'
+}
+
+function applyTheme(nextTheme: ThemeMode) {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return
+  document.documentElement.dataset.theme = nextTheme
+  window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme)
+}
+
+function updateActiveLink() {
+  let nextActive = '#inicio'
+  const offsetTop = 140
+
+  for (const item of menuItems.value) {
+    const section = document.querySelector<HTMLElement>(item.href)
+    if (!section) continue
+    if (section.getBoundingClientRect().top <= offsetTop) {
+      nextActive = item.href
+    }
+  }
+
+  activeHref.value = nextActive
+}
+
+watch(theme, applyTheme, { immediate: true })
+
+onMounted(() => {
+  updateActiveLink()
+  window.addEventListener('scroll', updateActiveLink, { passive: true })
+  window.addEventListener('resize', updateActiveLink)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateActiveLink)
+  window.removeEventListener('resize', updateActiveLink)
+})
 </script>
 
 <style scoped>
@@ -117,6 +216,12 @@ const menuItems = computed(() => [
   transform: translateY(-1px);
 }
 
+.nav-link.active {
+  color: var(--color-ice);
+  background: color-mix(in srgb, var(--color-electric) 26%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-electric) 42%, transparent);
+}
+
 .menu-button {
   display: none;
 }
@@ -131,9 +236,10 @@ const menuItems = computed(() => [
   gap: 10px;
 }
 
+.theme-button,
 .language-button {
   display: inline-grid;
-  width: 42px;
+  min-width: 42px;
   height: 36px;
   cursor: pointer;
   place-items: center;
@@ -150,6 +256,17 @@ const menuItems = computed(() => [
     color 180ms ease;
 }
 
+.theme-button {
+  width: 48px;
+  min-width: 48px;
+  padding: 0;
+}
+
+.theme-button :deep(.ui-icon) {
+  font-size: 20px;
+}
+
+.theme-button:hover,
 .language-button:hover {
   border-color: color-mix(in srgb, var(--color-electric) 72%, transparent);
   color: var(--color-ice);
@@ -185,6 +302,8 @@ const menuItems = computed(() => [
     cursor: pointer;
     align-items: center;
     justify-items: end;
+    background: transparent;
+    border: none;
   }
 
   .menu-button span {
@@ -194,13 +313,13 @@ const menuItems = computed(() => [
     border-radius: 999px;
     background: var(--color-ice);
     transition: transform 220ms var(--ease-snap);
+    right: 25%;
   }
 
   .menu-button span:first-child {
     width: 10px;
     transform: translateY(-4px);
   }
-
 
   .menu-button span:nth-child(2).active {
     display: none;

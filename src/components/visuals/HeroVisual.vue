@@ -1,195 +1,210 @@
 <template>
-  <aside class="hero-visual reveal reveal-3" aria-label="Visual de inteligencia artificial">
-    <div class="orbital-shell">
-      <div class="brain-wrap">
-        <BrainAnimation />
+  <aside
+    class="reveal reveal-3 relative min-h-[703px] contain-[layout_paint] max-[1180px]:min-h-[560px] max-[720px]:min-h-[420px]"
+    aria-label="Visual de inteligencia artificial"
+  >
+    <div
+      class="orbital-shell absolute right-0 bottom-0 grid aspect-square w-[min(100%,740px)] place-items-center max-[1180px]:relative max-[1180px]:mx-auto"
+    >
+      <div class="relative z-[3] aspect-[0.88] w-[min(82%,610px)] self-end">
+        <div class="absolute bottom-0 overflow-hidden">
+          <img class="size-full object-cover object-top" :src="avatarUrl" alt="Eduardo A. A." />
+        </div>
       </div>
+
       <div class="orbit orbit-a"></div>
       <div class="orbit orbit-b"></div>
-    </div>
+      <div class="orbit orbit-c"></div>
 
-    <UiCard class="code-card">
-      <div class="code-card__header">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <pre><code>pipeline.fit(data)
-signals = model.detect(context)
-agent.plan(signals)
-impact.ship()</code></pre>
-    </UiCard>
+      <span class="orbit-point top-[14%] left-[20%]"></span>
+      <span class="orbit-point top-[22%] right-[17%] [animation-delay:300ms]"></span>
+      <span class="orbit-point top-[48%] left-[12%] [animation-delay:620ms]"></span>
+      <span class="orbit-point top-[72%] right-[23%] [animation-delay:920ms]"></span>
+      <span class="orbit-point top-[84%] left-[36%] [animation-delay:1220ms]"></span>
+
+      <span
+        :class="[
+          pillClass,
+          'left-[17px] top-[270px] [animation-delay:0ms] min-[1180px]:max-[1280px]:left-[47px] min-[1180px]:max-[1280px]:top-[400px] max-[1180px]:left-[18px] max-[1180px]:top-[200px]',
+        ]"
+        @pointermove="tiltPill"
+        @pointerleave="resetPill"
+      >
+        <UiIcon name="multi_agents" size="sm" />
+        <span>Multi-Agent Systems</span>
+      </span>
+      <span
+        :class="[
+          pillClass,
+          'right-[78px] top-[71px] [animation-delay:420ms] min-[1180px]:max-[1280px]:right-[39px] min-[1180px]:max-[1280px]:top-[144px]',
+        ]"
+        @pointermove="tiltPill"
+        @pointerleave="resetPill"
+      >
+        <UiIcon name="mlops" size="sm" />
+        <span>MLOps</span>
+      </span>
+      <span
+        :class="[
+          pillClass,
+          'right-2.5 top-[323px] [animation-delay:760ms] min-[1180px]:max-[1280px]:right-[38px] min-[1180px]:max-[1280px]:top-[324px] max-[1180px]:right-[42px] max-[1180px]:top-[270px]',
+        ]"
+        @pointermove="tiltPill"
+        @pointerleave="resetPill"
+      >
+        <UiIcon name="machine_learning" size="sm" />
+        <span>Machine Learning</span>
+      </span>
+      <span
+        :class="[
+          pillClass,
+          'bottom-[210px] left-1.5 [animation-delay:1080ms] min-[1180px]:max-[1280px]:bottom-[184px] min-[1180px]:max-[1280px]:left-[34px]',
+        ]"
+        @pointermove="tiltPill"
+        @pointerleave="resetPill"
+      >
+        <UiIcon name="cloud" size="sm" />
+        <span>Cloud</span>
+      </span>
+      <span
+        :class="[
+          pillClass,
+          'right-[239px] bottom-24 [animation-delay:1440ms] min-[1180px]:max-[1280px]:right-[319px] min-[1180px]:max-[1280px]:bottom-[394px]',
+        ]"
+        @pointermove="tiltPill"
+        @pointerleave="resetPill"
+      >
+        <UiIcon name="star" size="sm" />
+        <span>Generative AI</span>
+      </span>
+    </div>
   </aside>
 </template>
 
 <script setup lang="ts">
-import BrainAnimation from '@/components/visuals/BrainAnimation.vue'
-import UiCard from '@/components/ui/UiCard.vue'
+import avatarUrl from '@/assets/avatar.png'
+import UiIcon from '@/components/ui/UiIcon.vue'
+
+const pillClass =
+  'absolute z-[6] inline-flex min-h-[52px] items-center gap-2 rounded-[14px] border border-[color-mix(in_srgb,var(--color-ice)_14%,transparent)] bg-[color-mix(in_srgb,var(--color-ink)_74%,transparent)] px-[18px] text-base text-[color-mix(in_srgb,var(--color-ice)_90%,transparent)] shadow-[0_0_0_1px_color-mix(in_srgb,var(--color-electric)_10%,transparent)_inset,0_0_24px_color-mix(in_srgb,var(--color-electric)_10%,transparent)] backdrop-blur-[8px] transform-3d transition-[transform,box-shadow] duration-200 will-change-[transform,box-shadow] animate-[pill-float_3800ms_ease-in-out_infinite] [transform:perspective(920px)_translateY(0)_rotateX(var(--pill-rx,0deg))_rotateY(var(--pill-ry,0deg))] hover:scale-110 hover:shadow-[0_18px_36px_color-mix(in_srgb,black_40%,transparent),0_0_0_1px_color-mix(in_srgb,var(--color-electric)_28%,transparent)_inset,0_0_28px_color-mix(in_srgb,var(--color-electric)_20%,transparent)] hover:[transform:perspective(920px)_translateY(-2px)_scale(1.1)_rotateX(calc(var(--pill-rx,0deg)*1.35))_rotateY(calc(var(--pill-ry,0deg)*1.35))] [&_.ui-icon]:text-[var(--color-electric)] max-[1180px]:min-h-11 max-[1180px]:text-[0.86rem] max-[720px]:hidden'
+
+function tiltPill(event: PointerEvent) {
+  const target = event.currentTarget as HTMLElement
+  const rect = target.getBoundingClientRect()
+  const offsetX = (event.clientX - rect.left) / rect.width - 0.5
+  const offsetY = (event.clientY - rect.top) / rect.height - 0.5
+  target.style.setProperty('--pill-rx', `${(-offsetY * 10).toFixed(2)}deg`)
+  target.style.setProperty('--pill-ry', `${(offsetX * 10).toFixed(2)}deg`)
+}
+
+function resetPill(event: PointerEvent) {
+  const target = event.currentTarget as HTMLElement
+  target.style.setProperty('--pill-rx', '0deg')
+  target.style.setProperty('--pill-ry', '0deg')
+}
 </script>
 
 <style scoped>
-.hero-visual {
-  position: relative;
-  min-height: 620px;
-  contain: layout paint;
-}
-
-.orbital-shell {
-  position: absolute;
-  top: 10px;
-  right: 58px;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-}
-
 .orbital-shell::before {
   position: absolute;
-  width: min(78%, 430px);
+  width: min(70%, 420px);
   aspect-ratio: 1;
-  content: "";
+  content: '';
   border-radius: 50%;
-  background:
-    radial-gradient(circle, color-mix(in srgb, var(--color-electric) 26%, transparent), transparent 58%),
-    radial-gradient(circle, color-mix(in srgb, var(--color-ice) 7%, transparent), transparent 66%);
-  filter: blur(6px);
-  animation: core-pulse 2600ms ease-in-out 2 alternate both;
-}
-
-.brain-wrap {
-  position: relative;
-  z-index: 3;
-  width: min(72vw, 420px);
-  aspect-ratio: 1;
-  transform: translate(40px, -34px) rotate(359deg);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-electric) 36%, transparent),
+    transparent 72%
+  );
+  filter: blur(8px);
 }
 
 .orbit {
   position: absolute;
-  width: min(86%, 500px);
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--color-electric) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-electric) 26%, transparent);
   border-radius: 50%;
-  will-change: transform;
+}
+
+.orbit-a {
+  width: 86%;
+  aspect-ratio: 1;
+  animation: orbit-spin 18s linear infinite;
+}
+
+.orbit-b {
+  width: 74%;
+  aspect-ratio: 1;
+  animation: orbit-spin 24s linear infinite reverse;
+}
+
+.orbit-c {
+  width: 62%;
+  aspect-ratio: 1;
+  opacity: 0.78;
+  animation: orbit-spin 30s linear infinite;
 }
 
 .orbit::after {
   position: absolute;
-  top: 9%;
+  top: 8%;
   left: 50%;
-  width: 7px;
-  height: 7px;
-  content: "";
-  border-radius: 50%;
-  background: var(--color-electric);
-  box-shadow: 0 0 18px var(--color-electric);
-}
-
-.orbit-a {
-  animation: spin-a 14000ms linear infinite;
-}
-
-.orbit-b {
-  width: min(72%, 430px);
-  animation: spin-b 18000ms linear infinite reverse;
-}
-
-.code-card {
-  position: absolute;
-  left: clamp(0px, 4vw, 48px);
-  bottom: 72px;
-  z-index: 4;
-  width: min(100%, 354px);
-  background: color-mix(in srgb, var(--color-void) 86%, transparent);
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.32),
-    inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
-  overflow: hidden;
-}
-
-.code-card__header {
-  display: flex;
-  gap: 6px;
-  padding: 12px;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.code-card__header span {
   width: 8px;
   height: 8px;
+  content: '';
   border-radius: 50%;
-  background: var(--color-steel);
-}
-
-.code-card__header span:first-child {
   background: var(--color-electric);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--color-electric) 72%, transparent);
 }
 
-.code-card pre {
-  margin: 0;
-  padding: 18px;
-  color: color-mix(in srgb, var(--color-ice) 78%, transparent);
-  font-size: 0.88rem;
-  line-height: 1.75;
+.orbit-a::after {
+  animation: twinkle 1800ms ease-in-out infinite;
 }
 
-@keyframes core-pulse {
-  from {
-    opacity: 0.52;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 0.9;
-    transform: scale(1.04);
-  }
+.orbit-b::after {
+  animation: twinkle 1500ms ease-in-out infinite 320ms;
 }
 
-@keyframes spin-a {
+.orbit-c::after {
+  animation: twinkle 1700ms ease-in-out infinite 680ms;
+}
+
+.orbit-point {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-electric) 80%, white);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--color-electric) 80%, transparent);
+  animation: twinkle 1800ms ease-in-out infinite;
+}
+
+@keyframes orbit-spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-@keyframes spin-b {
-  from {
-    transform: rotateX(68deg) rotateZ(18deg);
+@keyframes pill-float {
+  0%,
+  100% {
+    translate: 0 0;
   }
 
-  to {
-    transform: rotateX(68deg) rotateZ(378deg);
-  }
-}
-
-@media (max-width: 980px) {
-  .hero-visual {
-    min-height: 540px;
-  }
-
-  .orbital-shell {
-    top: 35px;
-    width: 100%;
-    right: 69%;
-    transform: translateX(58%);
-  }
-
-  .code-card {
-    left: 0;
-    bottom: 12px;
+  50% {
+    translate: 0 -8px;
   }
 }
 
-@media (max-width: 620px) {
-  .hero-visual {
-    min-height: 440px;
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.34;
+    scale: 0.84;
   }
 
-  .brain-wrap {
-    width: min(92vw, 360px);
-  }
-
-  .code-card {
-    width: 100%;
+  50% {
+    opacity: 1;
+    scale: 1.2;
   }
 }
 </style>
