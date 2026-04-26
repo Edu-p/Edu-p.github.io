@@ -51,7 +51,7 @@ const messages = {
         { title: 'AI & Machine Learning', items: ['Python', 'PyTorch', 'Scikit-Learn', 'LangChain', 'LangGraph', 'LLMs', 'NLTK', 'SpaCy'] },
         { title: 'Backend & Data', items: ['FastAPI', 'Celery', 'Redis', 'PostgreSQL', 'pgvector', 'MongoDB', 'SQL'] },
         { title: 'Cloud & DevOps', items: ['Cloud Run', 'Cloud Build', 'Vertex AI', 'Kubeflow', 'Docker', 'Kubernetes', 'CI/CD'] },
-        { title: 'Frontend & Other', items: ['React', 'JavaScript', 'HTML', 'CSS', 'Git', 'Linux'] },
+        { title: 'Frontend & Other', items: ['React', 'HTML', 'CSS', 'Git'] },
       ],
     },
     academic: {

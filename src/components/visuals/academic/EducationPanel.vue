@@ -21,7 +21,7 @@
             <UiIcon name="calendar_month" size="sm" />
           </span>
           <dt>{{ t.academic.period }}</dt>
-          <dd>2019 - 2025</dd>
+          <dd>2020 - 2025</dd>
         </div>
         <div>
           <span class="education-meta-icon" aria-hidden="true">
