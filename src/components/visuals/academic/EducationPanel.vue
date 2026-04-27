@@ -2,7 +2,7 @@
   <UiCard
     tag="section"
     variant="panel"
-    class="h-[-webkit-fill-available] p-[22px] max-[640px]:p-[18px]"
+    class="h-full w-full p-[22px] max-[640px]:h-auto max-[640px]:p-[18px]"
     aria-labelledby="education-title"
   >
     <header class="mb-5 flex items-center gap-3.5">

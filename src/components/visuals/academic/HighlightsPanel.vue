@@ -2,7 +2,7 @@
   <UiCard
     tag="section"
     variant="panel"
-    class="h-[-webkit-fill-available] p-[22px] max-[640px]:p-[18px]"
+    class="h-full w-full p-[22px] max-[640px]:h-auto max-[640px]:p-[18px]"
     aria-labelledby="highlights-title"
   >
     <header class="mb-5 flex items-center gap-3.5">
@@ -16,7 +16,7 @@
       </h3>
     </header>
 
-    <div class="grid grid-cols-2 gap-3 h-[141px]">
+    <div class="grid min-h-[141px] grid-cols-2 gap-3 max-[640px]:grid-cols-1">
       <UiCard
         v-for="highlight in highlights"
         :key="highlight.label"

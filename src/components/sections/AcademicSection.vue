@@ -10,16 +10,16 @@
       </ScrollReveal>
 
       <ScrollReveal class-name="academic-reveal academic-reveal--grid" :threshold="0.08">
-        <div class="flex flex-col items-start gap-4">
-          <ScrollReveal class-name="academic-reveal academic-reveal--panel-a" :threshold="0.1">
+        <div class="flex flex-col items-stretch gap-4">
+          <ScrollReveal class-name="academic-reveal academic-reveal--panel-a w-full" :threshold="0.1">
             <PublicationsPanel />
           </ScrollReveal>
 
-          <aside class="grid w-[-webkit-fill-available] grid-cols-2 gap-4 max-[1180px]:grid-cols-1">
-            <ScrollReveal class-name="academic-reveal academic-reveal--panel-b" :threshold="0.12">
+          <aside class="grid w-full grid-cols-2 gap-4 max-[1180px]:grid-cols-1">
+            <ScrollReveal class-name="academic-reveal academic-reveal--panel-b w-full" :threshold="0.12">
               <EducationPanel />
             </ScrollReveal>
-            <ScrollReveal class-name="academic-reveal academic-reveal--panel-c" :threshold="0.14">
+            <ScrollReveal class-name="academic-reveal academic-reveal--panel-c w-full" :threshold="0.14">
               <HighlightsPanel />
             </ScrollReveal>
           </aside>

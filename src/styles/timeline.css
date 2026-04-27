@@ -73,7 +73,10 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 719px) {
+  .company-mark .ui-mark{
+    display: none !important;
+  }
   .timeline-list::before {
     left: 78px;
   }
@@ -82,9 +85,5 @@
     left: -11px;
     top: 10px;
     transform: translate(-50%, -50%);
-  }
-
-  .company-mark .ui-mark{
-    display: none;
   }
 }

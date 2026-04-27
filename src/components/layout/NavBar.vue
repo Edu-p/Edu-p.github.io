@@ -1,13 +1,22 @@
 <template>
-  <header class="nav-wrap">
-    <nav class="container nav" :aria-label="t.nav.aria">
-      <a class="brand focus-ring" href="#inicio" :aria-label="t.nav.brandAria">
-        <img :src="logoUrl" class="invert-light" alt="Eduardo A. A." width="116" height="36" />
+  <header class="fixed inset-x-0 top-0 z-20 backdrop-blur-[18px]">
+    <nav
+      class="container grid min-h-[76px] grid-cols-[auto_1fr_auto] items-center gap-6 max-[920px]:grid-cols-[auto_auto] max-[920px]:justify-between"
+      :aria-label="t.nav.aria"
+    >
+      <a class="focus-ring inline-flex items-center" href="#inicio" :aria-label="t.nav.brandAria">
+        <img
+          :src="logoUrl"
+          class="invert-light h-auto w-[116px] object-contain"
+          alt="Eduardo A. A."
+          width="116"
+          height="36"
+        />
       </a>
 
-      <div class="mobile-actions">
+      <div class="hidden items-center gap-2.5 max-[920px]:flex">
         <button
-          class="theme-button focus-ring"
+          class="theme-button focus-ring inline-grid h-9 min-w-12 cursor-pointer place-items-center rounded-full px-0 text-[0.72rem] font-extrabold transition-colors"
           type="button"
           :aria-label="`${t.nav.theme}: ${themeToggleLabel}`"
           @click="toggleTheme"
@@ -16,7 +25,7 @@
         </button>
 
         <button
-          class="language-button focus-ring language-button--mobile"
+          class="language-button focus-ring inline-grid h-9 min-w-[42px] cursor-pointer place-items-center rounded-full text-[0.72rem] font-extrabold transition-colors"
           type="button"
           :aria-label="t.nav.language"
           @click="toggleLocale"
@@ -25,7 +34,7 @@
         </button>
 
         <button
-          class="menu-button focus-ring"
+          class="menu-button focus-ring relative z-[22] hidden h-11 w-11 cursor-pointer items-center justify-items-end border-0 bg-transparent max-[920px]:inline-grid"
           type="button"
           :aria-expanded="isMenuOpen"
           aria-controls="main-menu"
@@ -38,11 +47,15 @@
         </button>
       </div>
 
-      <div id="main-menu" class="nav-panel" :class="{ open: isMenuOpen }">
+      <div
+        id="main-menu"
+        class="nav-panel justify-self-center rounded-full max-[920px]:fixed max-[920px]:left-4 max-[920px]:right-4 max-[920px]:top-[76px] max-[920px]:grid max-[920px]:translate-y-[-12px] max-[920px]:scale-[0.98] max-[920px]:justify-stretch max-[920px]:gap-1 max-[920px]:rounded-lg max-[920px]:p-3 max-[920px]:opacity-0 max-[920px]:transition-[opacity,transform]"
+        :class="{ open: isMenuOpen }"
+      >
         <a
           v-for="item in menuItems"
           :key="item.href"
-          class="nav-link focus-ring"
+          class="nav-link focus-ring relative inline-flex min-h-9 items-center rounded-full px-3.5 text-[0.84rem] font-semibold transition-[color,background,transform] duration-200 max-[920px]:justify-center max-[920px]:rounded-md"
           :class="{ active: activeHref === item.href }"
           :aria-current="activeHref === item.href ? 'page' : undefined"
           :href="item.href"
@@ -52,9 +65,9 @@
         </a>
       </div>
 
-      <div class="nav-actions">
+      <div class="flex items-center gap-2.5 max-[920px]:hidden">
         <button
-          class="theme-button focus-ring"
+          class="theme-button focus-ring inline-grid h-9 min-w-12 cursor-pointer place-items-center rounded-full px-0 text-[0.72rem] font-extrabold transition-colors"
           type="button"
           :aria-label="`${t.nav.theme}: ${themeToggleLabel}`"
           @click="toggleTheme"
@@ -63,7 +76,7 @@
         </button>
 
         <button
-          class="language-button focus-ring language-button--desktop"
+          class="language-button focus-ring inline-grid h-9 min-w-[42px] cursor-pointer place-items-center rounded-full text-[0.72rem] font-extrabold transition-colors"
           type="button"
           :aria-label="t.nav.language"
           @click="toggleLocale"
@@ -157,34 +170,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-.nav-wrap {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 20;
-  backdrop-filter: blur(18px);
-}
-
-.nav {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 24px;
-  min-height: 76px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-}
-
-.brand img {
-  width: 116px;
-  height: auto;
-  object-fit: contain;
-}
-
 .nav-panel {
-  justify-self: center;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -195,19 +181,7 @@ onBeforeUnmount(() => {
 }
 
 .nav-link {
-  position: relative;
-  display: inline-flex;
-  min-height: 36px;
-  align-items: center;
-  padding: 0 14px;
-  border-radius: 999px;
   color: var(--color-muted);
-  font-size: 0.84rem;
-  font-weight: 600;
-  transition:
-    color 180ms ease,
-    background 180ms ease,
-    transform 180ms ease;
 }
 
 .nav-link:hover {
@@ -222,44 +196,12 @@ onBeforeUnmount(() => {
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-electric) 42%, transparent);
 }
 
-.menu-button {
-  display: none;
-}
-
-.mobile-actions {
-  display: none;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .theme-button,
 .language-button {
-  display: inline-grid;
-  min-width: 42px;
-  height: 36px;
-  cursor: pointer;
-  place-items: center;
   border: 1px solid color-mix(in srgb, var(--color-electric) 36%, transparent);
-  border-radius: 999px;
   color: var(--color-electric);
   font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 800;
   background: color-mix(in srgb, var(--color-ink) 72%, transparent);
-  transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    color 180ms ease;
-}
-
-.theme-button {
-  width: 48px;
-  min-width: 48px;
-  padding: 0;
 }
 
 .theme-button :deep(.ui-icon) {
@@ -274,36 +216,8 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 920px) {
-  .nav {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-  }
-
-  .nav-actions {
-    display: none;
-  }
-
   .talk-button {
     display: none;
-  }
-
-  .mobile-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .menu-button {
-    position: relative;
-    z-index: 22;
-    display: inline-grid;
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    align-items: center;
-    justify-items: end;
-    background: transparent;
-    border: none;
   }
 
   .menu-button span {
@@ -339,18 +253,7 @@ onBeforeUnmount(() => {
   }
 
   .nav-panel {
-    position: fixed;
-    top: 76px;
-    right: 16px;
-    left: 16px;
-    display: grid;
-    justify-items: stretch;
-    gap: 4px;
-    padding: 12px;
-    border-radius: 8px;
-    opacity: 0;
     pointer-events: none;
-    transform: translateY(-12px) scale(0.98);
     transition:
       opacity 180ms ease,
       transform 220ms var(--ease-snap);
@@ -361,11 +264,6 @@ onBeforeUnmount(() => {
     pointer-events: auto;
     width: stretch;
     transform: translateY(0) scale(1);
-  }
-
-  .nav-link {
-    justify-content: center;
-    border-radius: 6px;
   }
 }
 </style>
