@@ -29,7 +29,7 @@ const messages = {
       titleLead: 'Transforming artificial intelligence into',
       titleAccent: 'real impact.',
       description:
-        'AI Engineer with over 5 years of experience building scalable multi-agent systems and production ML solutions.',
+        'AI Engineer with over 6 years of experience building scalable multi-agent systems and production ML solutions.',
       primaryCta: 'View my CV',
       secondaryCta: 'View projects',
       locationLabel: 'Location',
@@ -54,12 +54,12 @@ const messages = {
       eyebrow: 'About me',
       title: 'Science, logic, and purpose.',
       titleAccent: 'That is my formula.',
-      copy: 'AI Engineer with more than 5 years connecting research, product, and scalable cloud systems. Specialist in Machine Learning, MLOps, and intelligent agents.',
+      copy: 'AI Engineer with more than 6 years connecting research, product, and scalable cloud systems. Specialist in Machine Learning, MLOps, and intelligent agents.',
       contactAria: 'Contact information',
       location: 'Recife, PE, Brazil',
       stackEyebrow: 'Technologies I use',
       metrics: [
-        { icon: 'EXP', value: '5+', label: 'years of experience' },
+        { icon: 'EXP', value: '6+', label: 'years of experience' },
         { icon: 'PUB', value: '3+', label: 'academic publications' },
         { icon: 'DEV', value: '10+', label: 'academic projects' },
         { icon: 'TOP', value: '100%', label: 'focus on impact and learning' },
@@ -132,6 +132,7 @@ const messages = {
           summary:
             'The integration of Language Models (LMs) into collaborative environments, such as corporate chat platforms, shared document editors, and internal copilots, introduces distinct security risks. This work proposes a reference architecture for operationalizing LM moderation for Portuguese contexts using SecBERT as a pre-filtering layer, with a Traffic Light workflow, tunable thresholds, and auditing roles. A trace-driven simulation over 29,432 interactions shows P99 latency of 18.54ms and a mitigation strategy that reduces human intervention to 1.9% of interactions.',
           codeHref: 'https://github.com/Edu-p/traffic-light-secbert-br',
+          paperHref: 'https://sol.sbc.org.br/index.php/sbsc/article/view/42934/42701',
         },
         {
           mark: 'IJ',
@@ -145,6 +146,7 @@ const messages = {
           summary:
             'Language Models (LMs) are vulnerable to jailbreak prompts designed to bypass safety constraints, while Portuguese resources and defenses remain scarce. We present SecBERT, a Portuguese classifier built on BERTimbau Base to detect policy-violating and harmful prompts, trained on a 29,432-instance translated WildJailbreak subset that preserves the original four-way taxonomy. Fine-tuned SecBERT reaches 95.6% F1, 99.2% AUC, and 91.2% KS, outperforming non-Portuguese-centric baselines.',
           codeHref: 'https://github.com/Edu-p/secbert-pt',
+          paperHref: 'https://linklings.s3.amazonaws.com/organizations/WCCI/wcci2026/submissions/stype114/M9P1N-ijcnn_pap2487s2.pdf',
         },
         {
           mark: 'VI',
@@ -162,7 +164,7 @@ const messages = {
       ],
       highlights: [
         { icon: 'DOC', value: '3', label: 'Published articles' },
-        { icon: 'GPA', value: '8.9/10', label: 'Final GPA' },
+        { icon: 'GPA', value: '9.1/10', label: 'Final GPA' },
       ],
       projectsTitle: 'Projects',
       viewProject: 'View project',
@@ -275,16 +277,6 @@ const messages = {
           tags: ['GCP', 'Kubeflow', 'Vertex AI', 'Celery', 'Redis', 'CI/CD', 'OAuth2'],
         },
         {
-          period: 'Mar 2025 - Aug 2025',
-          logo: 'AT',
-          role: 'AI Engineer',
-          company: 'Amigo Tech',
-          location: 'Brazil',
-          summary:
-            'Development of agents with LangGraph and LangChain using Redis and PostgreSQL with pgvector.',
-          tags: ['FastAPI', 'LangGraph', 'LangChain', 'Redis', 'PostgreSQL', 'pgvector'],
-        },
-        {
           period: 'Feb 2023 - Mar 2025',
           logo: 'NT',
           role: 'ML Engineer',
@@ -305,7 +297,7 @@ const messages = {
           tags: ['Flower', 'PySyft', 'Azure', 'Docker', 'Kubernetes', 'Grafana'],
         },
         {
-          period: 'Apr 2021 - Jan 2022',
+          period: 'Dec 2020 - Feb 2022',
           logo: 'AB',
           role: 'ML Engineer',
           company: 'AiBox Lab',
@@ -366,7 +358,7 @@ const messages = {
       titleLead: 'Transformando inteligencia artificial em',
       titleAccent: 'impacto real.',
       description:
-        'Engenheiro de IA com mais de 5 anos de experiencia construindo sistemas escalaveis, multi-agentes e solucoes de ML em producao.',
+        'Engenheiro de IA com mais de 6 anos de experiencia construindo sistemas escalaveis, multi-agentes e solucoes de ML em producao.',
       primaryCta: 'Ver meu CV',
       secondaryCta: 'Ver projetos',
       locationLabel: 'Localizacao',
@@ -391,12 +383,12 @@ const messages = {
       eyebrow: 'Sobre mim',
       title: 'Ciencia, logica e proposito.',
       titleAccent: 'Essa e a minha formula.',
-      copy: 'Engenheiro de IA com mais de 5 anos conectando pesquisa, produto e sistemas escalaveis em nuvem. Especialista em Machine Learning, MLOps e agentes inteligentes.',
+      copy: 'Engenheiro de IA com mais de 6 anos conectando pesquisa, produto e sistemas escalaveis em nuvem. Especialista em Machine Learning, MLOps e agentes inteligentes.',
       contactAria: 'Informacoes de contato',
       location: 'Recife, PE, Brasil',
       stackEyebrow: 'Tecnologias que utilizo',
       metrics: [
-        { icon: 'EXP', value: '5+', label: 'anos de experiencia' },
+        { icon: 'EXP', value: '6+', label: 'anos de experiencia' },
         { icon: 'PUB', value: '3+', label: 'publicacoes academicas' },
         { icon: 'DEV', value: '10+', label: 'projetos academicos' },
         { icon: 'TOP', value: '100%', label: 'foco em impacto e aprendizado' },
@@ -472,6 +464,7 @@ const messages = {
           summary:
             'The integration of Language Models (LMs) into collaborative environments, such as corporate chat platforms, shared document editors, and internal copilots, introduces distinct security risks. This work proposes a reference architecture for operationalizing LM moderation for Portuguese contexts using SecBERT as a pre-filtering layer, with a Traffic Light workflow, tunable thresholds, and auditing roles. A trace-driven simulation over 29,432 interactions shows P99 latency of 18.54ms and a mitigation strategy that reduces human intervention to 1.9% of interactions.',
           codeHref: 'https://github.com/Edu-p/traffic-light-secbert-br',
+          paperHref: 'https://sol.sbc.org.br/index.php/sbsc/article/view/42934/42701',
         },
         {
           mark: 'IJ',
@@ -485,6 +478,7 @@ const messages = {
           summary:
             'Language Models (LMs) are vulnerable to jailbreak prompts designed to bypass safety constraints, while Portuguese resources and defenses remain scarce. We present SecBERT, a Portuguese classifier built on BERTimbau Base to detect policy-violating and harmful prompts, trained on a 29,432-instance translated WildJailbreak subset that preserves the original four-way taxonomy. Fine-tuned SecBERT reaches 95.6% F1, 99.2% AUC, and 91.2% KS, outperforming non-Portuguese-centric baselines.',
           codeHref: 'https://github.com/Edu-p/secbert-pt',
+          paperHref: 'https://linklings.s3.amazonaws.com/organizations/WCCI/wcci2026/submissions/stype114/M9P1N-ijcnn_pap2487s2.pdf',
         },
         {
           mark: 'VI',
@@ -502,7 +496,7 @@ const messages = {
       ],
       highlights: [
         { icon: 'DOC', value: '3', label: 'Artigos publicados' },
-        { icon: 'GPA', value: '8.9/10', label: 'GPA final' },
+        { icon: 'GPA', value: '9.1/10', label: 'GPA final' },
       ],
       projectsTitle: 'Projetos',
       viewProject: 'Ver projeto',
@@ -615,16 +609,6 @@ const messages = {
           tags: ['GCP', 'Kubeflow', 'Vertex AI', 'Celery', 'Redis', 'CI/CD', 'OAuth2'],
         },
         {
-          period: 'Mar 2025 - Ago 2025',
-          logo: 'AT',
-          role: 'AI Engineer',
-          company: 'Amigo Tech',
-          location: 'Brasil',
-          summary:
-            'Desenvolvimento de agentes com LangGraph e LangChain, usando Redis e PostgreSQL com pgvector.',
-          tags: ['FastAPI', 'LangGraph', 'LangChain', 'Redis', 'PostgreSQL', 'pgvector'],
-        },
-        {
           period: 'Fev 2023 - Mar 2025',
           logo: 'NT',
           role: 'ML Engineer',
@@ -645,7 +629,7 @@ const messages = {
           tags: ['Flower', 'PySyft', 'Azure', 'Docker', 'Kubernetes', 'Grafana'],
         },
         {
-          period: 'Abr 2021 - Jan 2022',
+          period: 'Dez 2020 - Fev 2022',
           logo: 'AB',
           role: 'ML Engineer',
           company: 'AiBox Lab',
