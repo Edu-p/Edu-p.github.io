@@ -3,7 +3,6 @@ import { computed, ref, watchEffect } from 'vue'
 export type Locale = 'en' | 'pt'
 
 const STORAGE_KEY = 'eduardo-portfolio-locale'
-
 const messages = {
   en: {
     nav: {
@@ -111,6 +110,8 @@ const messages = {
       codeUnavailable: 'Code repository not available for this paper.',
       allPublications: 'View all publications',
       education: 'Education',
+      masterDegree: 'M.Sc. in Computer Science (ML & Data Mining) | 1st place in selection',
+      masterNote: '2026 - Present',
       degree: 'B.Sc. in Computer Science',
       period: 'Period',
       location: 'Location',
@@ -267,7 +268,17 @@ const messages = {
       showMore: 'Show more',
       items: [
         {
-          period: '2025 - Present',
+          period: 'Jul 2026 - Present',
+          logo: 'WK',
+          role: 'Senior AI Engineer',
+          company: 'Workiva',
+          location: 'Ames, Iowa, United States',
+          summary:
+            'Contracted through Transcenda to engineer scalable AI solutions, agentic workflows, and production ML pipelines.',
+          tags: ['AI', 'Agentic Workflows', 'ML Pipelines', 'Python', 'LLMs'],
+        },
+        {
+          period: 'Aug 2025 - Jul 2026',
           logo: 'TD',
           role: 'Senior AI Engineer',
           company: 'TELUS Digital',
@@ -443,7 +454,9 @@ const messages = {
       codeUnavailable: 'Repositorio de codigo indisponivel para este artigo.',
       allPublications: 'Ver todas as publicacoes',
       education: 'Formacao academica',
-      degree: 'Bacharelado em Ciencia da Computacao',
+      masterDegree: 'Mestrado em Ciência da Computação (ML & Data Mining) | 1º lugar na seleção',
+      masterNote: '2026 - Presente',
+      degree: 'Bacharelado em Ciência da Computação',
       period: 'Periodo',
       location: 'Local',
       educationNote: 'Graduacao concluida em 2025.',
@@ -599,7 +612,17 @@ const messages = {
       showMore: 'Ver mais',
       items: [
         {
-          period: '2025 - Presente',
+          period: 'Jul 2026 - Presente',
+          logo: 'WK',
+          role: 'Senior AI Engineer',
+          company: 'Workiva',
+          location: 'Ames, Iowa, Estados Unidos',
+          summary:
+            'Contratado via Transcenda para arquitetar soluções de IA escaláveis, fluxos agênticos e pipelines de ML em produção.',
+          tags: ['AI', 'Agentic Workflows', 'ML Pipelines', 'Python', 'LLMs'],
+        },
+        {
+          period: 'Ago 2025 - Jul 2026',
           logo: 'TD',
           role: 'Senior AI Engineer',
           company: 'TELUS Digital',
@@ -666,7 +689,7 @@ const messages = {
       ],
     },
   },
-} as const
+} as const;
 
 const savedLocale = typeof window !== 'undefined' ? window.localStorage.getItem(STORAGE_KEY) : null
 const locale = ref<Locale>(savedLocale === 'pt' ? 'pt' : 'en')
